@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh3e0sygjc3h5"]
+
+[ext_resource type="Script" path="res://Scripts/bookshelf.gd" id="1_gd4af"]
+[ext_resource type="Texture2D" uid="uid://cidhpg258ajfq" path="res://Sprites/bookshelf front.png" id="1_y7thn"]
+
+[sub_resource type="Curve" id="Curve_ueyma"]
+
+[node name="Bookshelf" type="Sprite2D"]
+texture = ExtResource("1_y7thn")
+script = ExtResource("1_gd4af")
+curve = SubResource("Curve_ueyma")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-11, -8)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-11, -8)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(-11, -8)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(-11, -8)

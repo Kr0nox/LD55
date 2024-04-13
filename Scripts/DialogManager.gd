@@ -15,7 +15,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the eelapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if dialogs.size() == 0:
 		return
 	

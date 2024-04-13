@@ -1,17 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ei7bd7tlw4tq"]
+[gd_scene load_steps=4 format=3 uid="uid://ei7bd7tlw4tq"]
 
 [ext_resource type="Script" path="res://Scripts/Summoning/Items/CircleItem.gd" id="1_nii3c"]
+[ext_resource type="Texture2D" uid="uid://domw6x68dlo67" path="res://Sprites/Items/paper drawing.png" id="2_dh7ir"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lh5hj"]
 
 [node name="PartItem" type="Area2D"]
 script = ExtResource("1_nii3c")
+texture = ExtResource("2_dh7ir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_lh5hj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dh7ir")
 
 [connection signal="body_entered" from="." to="." method="enter"]
 [connection signal="body_exited" from="." to="." method="exit"]

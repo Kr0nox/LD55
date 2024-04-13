@@ -1,11 +1,17 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dv265t6ga34mk"]
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://dv265t6ga34mk"]
 
 [ext_resource type="Texture2D" uid="uid://cn4e3iqscgig0" path="res://Sprites/Player/nun back idle.png" id="1_mbwc0"]
 [ext_resource type="Texture2D" uid="uid://droego30i5xby" path="res://Sprites/Player/nun front idle.png" id="1_r2ekf"]
 [ext_resource type="Texture2D" uid="uid://b2yxqd4dhg51p" path="res://Sprites/Player/nun front run 1.png" id="2_43blg"]
 [ext_resource type="Texture2D" uid="uid://di3ngerx2mpcv" path="res://Sprites/Player/nun front run 2.png" id="3_ilf6r"]
 [ext_resource type="Texture2D" uid="uid://bjn1lm64exls2" path="res://Sprites/Player/nun back run 1.png" id="3_nsod1"]
+[ext_resource type="Texture2D" uid="uid://vgo0rti4ks85" path="res://Sprites/Player/nun side left idle.png" id="3_x266j"]
+[ext_resource type="Texture2D" uid="uid://b1r3ebi7ory5r" path="res://Sprites/Player/nun side right idle.png" id="4_3i3cs"]
 [ext_resource type="Texture2D" uid="uid://c115pe235fa7g" path="res://Sprites/Player/nun back run 2.png" id="4_brinx"]
+[ext_resource type="Texture2D" uid="uid://ga6uuan4485w" path="res://Sprites/Player/nun side left run 1.png" id="4_l3dof"]
+[ext_resource type="Texture2D" uid="uid://0xu40e7o2u5v" path="res://Sprites/Player/nun side left run 2.png" id="10_doxbb"]
+[ext_resource type="Texture2D" uid="uid://c6owtdbq1qno6" path="res://Sprites/Player/nun side right run 1.png" id="11_i5bsk"]
+[ext_resource type="Texture2D" uid="uid://c6fci4pvejifo" path="res://Sprites/Player/nun side right run 2.png" id="12_hhq3u"]
 
 [resource]
 animations = [{
@@ -25,12 +31,18 @@ animations = [{
 "name": &"idleFwd",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x266j")
+}],
 "loop": true,
 "name": &"idleL",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3i3cs")
+}],
 "loop": true,
 "name": &"idleR",
 "speed": 5.0
@@ -69,12 +81,36 @@ animations = [{
 "name": &"runFwd",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_l3dof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x266j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_doxbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x266j")
+}],
 "loop": true,
 "name": &"runL",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_i5bsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3i3cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hhq3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3i3cs")
+}],
 "loop": true,
 "name": &"runR",
 "speed": 5.0

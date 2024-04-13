@@ -1,41 +1,56 @@
 extends CharacterBody2D
 class_name Inventory
 
-@export var items: Array[Item]
 @export var sprites: Array[Sprite2D]
-var selectedSlot = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	while items.size() < sprites.size():
-		items.push_back(null)
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("drop"):
-		if items[selectedSlot] != null:
-			items[selectedSlot].set_process(true)
-			items[selectedSlot].visible = true
-			items[selectedSlot].global_position = global_transform.origin
-			items[selectedSlot] = null
-			redraw()
+	if Input.is_action_just_pressed("next_item"):
+		_move_select(1)
+	elif Input.is_action_just_pressed("prev_item"):
+		_move_select(-1)
+	print(Game.selectedSlot)
+
+func _move_select(dir: int):
+	var old = Game.selectedSlot
+	while true:
+		Game.selectedSlot += dir
+		if Game.selectedSlot < 0:
+			Game.selectedSlot = sprites.size() - 1
+		if Game.selectedSlot >= sprites.size():
+			Game.selectedSlot = 0
+		if Game.items[Game.selectedSlot] != null:
+			return
+		if old == Game.selectedSlot:
+			return
 
 func pickup(item: Item):
 	var i = 0
-	while i < items.size():
-		if items[i] == null:
+	while i < Game.items.size():
+		if Game.items[i] == null:
 			break
 		i += 1
-	if i == items.size():
+	if i == Game.items.size():
 		return false
-	items[i] = item
+	Game.items[i] = item
 	redraw()
 	return true
 	
 func redraw():
-	for i in items.size():
-		if items[i] == null:
+	for i in Game.items.size():
+		if Game.items[i] == null:
 			sprites[i].texture = null
 		else:
-			sprites[i].texture = items[i].texture
+			sprites[i].texture = Game.items[i].texture
+
+func dropOff():
+	var item = Game.items[Game.selectedSlot]
+	Game.items[Game.selectedSlot] = null
+	if item != null:
+		item.set_process(true)
+	redraw()
+	return item

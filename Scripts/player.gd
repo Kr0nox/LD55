@@ -4,6 +4,7 @@ extends Inventory
 @export var SPEED = 300.0
 @export var BRAKE = 15.0
 @export var dialogManager: DialogManager
+@export var book: Book
 @onready var anim = $AnimatedSprite2D
 var lastHor = 0
 var lastVer = 1
@@ -30,17 +31,18 @@ func _physics_process(_delta):
 		playAnim("run", directionHor, directionVer)
 	else:
 		playAnim("idle", lastHor, lastVer)
-	
-	if Input.is_action_just_pressed("do"):
-		dialogManager.add_dialog(Dialog.new("asdasdasd wqdasd asd asd asd a s", null))
-	if Input.is_action_just_pressed("drop"):
-		dialogManager.add_dialog(Dialog.new("nullTest12", null))
-		dialogManager.add_dialog(Dialog.new("weiterer Text Lorem Ipsum", null))
-
+		
 	move_and_slide()
 
+func _process(delta):
+	super(delta)
+	if Input.is_action_just_pressed("book"):
+		book.render()
+		book.visible = !book.visible
+		
+
 func playAnim(prefix: String, hor: float, ver: float):
-	if abs(hor) > abs(ver):
+	if abs(hor) >= abs(ver):
 		if hor > 0:
 			#right
 			anim.play(prefix + "R")

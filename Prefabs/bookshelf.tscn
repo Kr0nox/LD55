@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://bh3e0sygjc3h5"]
+
+[ext_resource type="Script" path="res://Scripts/bookshelf.gd" id="1_gd4af"]
+[ext_resource type="Texture2D" uid="uid://cidhpg258ajfq" path="res://Sprites/bookshelf front.png" id="1_y7thn"]
+[ext_resource type="Texture2D" uid="uid://dm3hc5grjbyp3" path="res://Sprites/Books/book01.tres" id="3_lh3is"]
+[ext_resource type="Texture2D" uid="uid://joxlt8vbpwkm" path="res://Sprites/Books/book02.tres" id="4_mjx1f"]
+[ext_resource type="Texture2D" uid="uid://cr6b6rfujtogg" path="res://Sprites/Books/book03.tres" id="5_23hic"]
+[ext_resource type="Texture2D" uid="uid://dn0g1mxa7m1k3" path="res://Sprites/Books/book04.tres" id="6_o64iy"]
+[ext_resource type="Texture2D" uid="uid://b8wwjmfm6ppv5" path="res://Sprites/Books/book05.tres" id="7_gf4rn"]
+[ext_resource type="Texture2D" uid="uid://bn6ui26ql3fih" path="res://Sprites/Books/book06.tres" id="8_4obpt"]
+[ext_resource type="Texture2D" uid="uid://puetmc2hk8jd" path="res://Sprites/Books/book07.tres" id="9_hv2v0"]
+
+[sub_resource type="Curve" id="Curve_ueyma"]
+_data = [Vector2(0, 0.0659341), 0.0, 0.0, 0, 0, Vector2(0.257895, 0.318681), 0.0, 0.0, 0, 0, Vector2(0.836842, 0.725275), 0.0, 0.0, 0, 0, Vector2(0.994737, 0.989011), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8riib"]
+size = Vector2(24, 38)
+
+[node name="Bookshelf" type="StaticBody2D"]
+z_index = -1
+position = Vector2(0, 1)
+script = ExtResource("1_gd4af")
+curve = SubResource("Curve_ueyma")
+textures = Array[Texture2D]([ExtResource("3_lh3is"), ExtResource("4_mjx1f"), ExtResource("5_23hic"), ExtResource("6_o64iy"), ExtResource("7_gf4rn"), ExtResource("8_4obpt"), ExtResource("9_hv2v0"), ExtResource("3_lh3is"), ExtResource("5_23hic"), ExtResource("6_o64iy"), ExtResource("3_lh3is"), ExtResource("5_23hic"), ExtResource("6_o64iy"), ExtResource("3_lh3is"), ExtResource("3_lh3is"), ExtResource("3_lh3is"), ExtResource("6_o64iy")])
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-11, -9)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-11, -1)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(-11, 7)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(-11, 15)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -16)
+texture = ExtResource("1_y7thn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_8riib")

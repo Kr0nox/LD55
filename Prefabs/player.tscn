@@ -1,18 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqt0siv37u27f"]
+[gd_scene load_steps=8 format=3 uid="uid://bqt0siv37u27f"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_6yvxj"]
+[ext_resource type="Texture2D" uid="uid://busmb16hxm7b7" path="res://Sprites/item bar.png" id="2_2pvih"]
 [ext_resource type="SpriteFrames" uid="uid://dv265t6ga34mk" path="res://Sprites/Anim/player.tres" id="2_8cr7g"]
 [ext_resource type="Script" path="res://Scripts/DialogManager.gd" id="2_hrxkx"]
+[ext_resource type="Script" path="res://Scripts/Summoning/Book.gd" id="3_q8nuj"]
+[ext_resource type="Texture2D" uid="uid://bn4y3w2ckk1ix" path="res://Sprites/notebook.png" id="3_rgx3v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04wkt"]
 radius = 7.0
-height = 16.0321
+height = 18.0361
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dialogManager", "sprites")]
 scale = Vector2(1, 0.998)
 script = ExtResource("1_6yvxj")
+SPEED = 100.0
 dialogManager = NodePath("UI/Dialog")
-sprites = [NodePath("UI/Inventory/Panel/01")]
+sprites = [NodePath("UI/Inventory/Panel/01"), NodePath("UI/Inventory/Panel/02"), NodePath("UI/Inventory/Panel/03"), NodePath("UI/Inventory/Panel/04"), NodePath("UI/Inventory/Panel/05"), NodePath("UI/Inventory/Panel/06"), NodePath("UI/Inventory/Panel/07"), NodePath("UI/Inventory/Panel/08"), NodePath("UI/Inventory/Panel/09"), NodePath("UI/Inventory/Panel/10")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 follow_viewport_scale = 600.999
@@ -27,7 +31,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="UI/Inventory"]
+[node name="Panel" type="TextureRect" parent="UI/Inventory"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -37,12 +41,61 @@ offset_top = 20.0
 offset_right = 400.0
 offset_bottom = 80.0
 grow_horizontal = 2
+texture = ExtResource("2_2pvih")
+stretch_mode = 5
 
 [node name="01" type="Sprite2D" parent="UI/Inventory/Panel"]
-position = Vector2(31, 30)
+position = Vector2(88, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="02" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(158, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="03" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(228, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="04" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(298, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="05" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(369, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="06" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(438, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="07" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(509, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="08" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(579, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="09" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(650, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="10" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(718, 30)
+scale = Vector2(2.5, 2.5)
 region_rect = Rect2(20, 0, 0, 0)
 
 [node name="Dialog" type="Control" parent="UI" node_paths=PackedStringArray("nextLabel", "label", "icon")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,6 +161,32 @@ offset_right = 895.0
 offset_bottom = 148.0
 text = "Enter to continue"
 
+[node name="Book" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_q8nuj")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Book"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -320.0
+offset_right = 640.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.986947)
+texture = ExtResource("3_rgx3v")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.00401)
 shape = SubResource("CapsuleShape2D_04wkt")
@@ -115,8 +194,11 @@ debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_8cr7g")
-animation = &"idleFwd"
-frame_progress = 0.023181
+animation = &"runL"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+limit_left = -500
+limit_top = -500
+limit_right = 500
+limit_bottom = 500

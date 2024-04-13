@@ -4,7 +4,8 @@ class_name CirclePart
 @export var sprite: Sprite2D
 @export var circle: Node2D
 @export var isEntered = false
-@export var pickedUp = false
+@export var index: int
+var drawn = false
 var pulseDir = 1
 const minAlpha = 0.2
 const maxAlpha = 0.6
@@ -20,14 +21,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !pickedUp:
+	if drawn:
 		return
+	print(Game.learned)
+	if !Game.learned.has(Game.recipe.drawingParts[index]):
+		return
+	if !visible:
+		visible = true
 	
 	var temp = sprite.modulate.a + pulseDir * delta /3
-	print(temp)
 	sprite.modulate.a = temp
 	if temp >= maxAlpha || temp <= minAlpha:
 		pulseDir *= -1
+	print(temp)
 	
 	if !isEntered:
 		return
@@ -39,20 +45,13 @@ func _process(delta):
 		sprite.modulate.b = 255
 		sprite.modulate.a = 1
 		pulseDir = 0
-		pickedUp = false
+		drawn = true
 	
 
 
 func _on_body_entered(body):
 	if body.name == "Player":
 		isEntered = true
-	
-	
-
-func picked_up():
-	visible = true
-	pickedUp = true
-
 
 func _on_body_exited(body):
 	if body.name == "Player":
