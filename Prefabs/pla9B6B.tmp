@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqt0siv37u27f"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_6yvxj"]
+[ext_resource type="Texture2D" uid="uid://cn7tsumiit75h" path="res://icon.svg" id="1_wjj3u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1wo7"]
+size = Vector2(56, 18.5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6yvxj")
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+follow_viewport_scale = 600.999
+
+[node name="Control" type="Control" parent="Inventory"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Inventory/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 20.0
+offset_right = 400.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="01" type="Sprite2D" parent="Inventory/Control/Panel"]
+position = Vector2(31, 30)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 22.25)
+shape = SubResource("RectangleShape2D_w1wo7")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wjj3u")
+
+[node name="Camera2D" type="Camera2D" parent="."]

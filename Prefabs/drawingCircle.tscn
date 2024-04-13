@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvgtslrr3w3ve"]
+
+[ext_resource type="Texture2D" uid="uid://ccvcfq1sv6wuw" path="res://Sprites/circle.png" id="1_cxun8"]
+[ext_resource type="Script" path="res://Scripts/Summoning/DrawingCircle.gd" id="1_robfh"]
+
+[node name="DrawingCircle" type="Node2D"]
+script = ExtResource("1_robfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cxun8")

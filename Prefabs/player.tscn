@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqt0siv37u27f"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_6yvxj"]
+[ext_resource type="SpriteFrames" uid="uid://dv265t6ga34mk" path="res://Sprites/Anim/player.tres" id="2_8cr7g"]
+[ext_resource type="Script" path="res://Scripts/DialogManager.gd" id="2_hrxkx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04wkt"]
+radius = 7.0
+height = 16.0321
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dialogManager", "sprites")]
+scale = Vector2(1, 0.998)
+script = ExtResource("1_6yvxj")
+dialogManager = NodePath("UI/Dialog")
+sprites = [NodePath("UI/Inventory/Panel/01")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_scale = 600.999
+
+[node name="Inventory" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="UI/Inventory"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 20.0
+offset_right = 400.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="01" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(31, 30)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="Dialog" type="Control" parent="UI" node_paths=PackedStringArray("nextLabel", "label", "icon")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hrxkx")
+nextLabel = NodePath("Container/TextPanel/Label")
+label = NodePath("Container/TextPanel/RichTextLabel")
+icon = NodePath("Container/IconPanel/Sprite2D")
+
+[node name="Container" type="Control" parent="UI/Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -575.0
+offset_top = -168.0
+offset_right = 575.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="IconPanel" type="Panel" parent="UI/Dialog/Container"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 150.0
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Dialog/Container/IconPanel"]
+
+[node name="TextPanel" type="Panel" parent="UI/Dialog/Container"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_right = 1150.0
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Dialog/Container/TextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "sadassssssssssssssssssssssssssssssa
+aaaaaaaaaaaaaaag"
+
+[node name="Label" type="Label" parent="UI/Dialog/Container/TextPanel"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 125.0
+offset_right = 895.0
+offset_bottom = 148.0
+text = "Enter to continue"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.00401)
+shape = SubResource("CapsuleShape2D_04wkt")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_8cr7g")
+animation = &"idleFwd"
+frame_progress = 0.023181
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)

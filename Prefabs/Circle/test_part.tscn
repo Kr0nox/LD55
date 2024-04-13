@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4evqyvu85vqc"]
+
+[ext_resource type="Script" path="res://Scripts/Summoning/CirclePart.gd" id="1_3hp4p"]
+[ext_resource type="Texture2D" uid="uid://u4wdesutysr2" path="res://Sprites/test1.png" id="2_yub8t"]
+
+[node name="TestPart" type="Area2D"]
+script = ExtResource("1_3hp4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yub8t")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 2, 0, 280, 233, 204, 291, 49, 291, -3)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
