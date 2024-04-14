@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://5at0isy820n7"]
+[gd_scene load_steps=11 format=3 uid="uid://5at0isy820n7"]
 
 [ext_resource type="Script" path="res://Scripts/titleMenu.gd" id="1_06cyj"]
+[ext_resource type="Texture2D" uid="uid://xgn22dr2ec31" path="res://Sprites/Area/floor.png" id="2_ml58b"]
+[ext_resource type="Texture2D" uid="uid://bn4y3w2ckk1ix" path="res://Sprites/notebook.png" id="3_eky6a"]
+[ext_resource type="Texture2D" uid="uid://clggkp4t6wxlf" path="res://Sprites/circleOnly.png" id="3_yddon"]
+[ext_resource type="PackedScene" uid="uid://dgwa8pm6g1bph" path="res://Prefabs/flying_item.tscn" id="4_y738q"]
+[ext_resource type="Texture2D" uid="uid://dxat5r3sy35gm" path="res://Sprites/Items/black cat skull.png" id="5_1n8gw"]
+[ext_resource type="Texture2D" uid="uid://bp74xdx7m3nof" path="res://Sprites/Items/bottle of virgin blood.png" id="6_p4i5p"]
+[ext_resource type="Texture2D" uid="uid://dxuknsakm5xgu" path="res://Sprites/Items/crow feather.png" id="7_uw06c"]
+[ext_resource type="Texture2D" uid="uid://bi0i7pm0wja6w" path="res://Sprites/Items/star shard.png" id="8_303ph"]
+[ext_resource type="Texture2D" uid="uid://h5nf3uq4v74o" path="res://Sprites/Items/rabbits foot.png" id="9_tba0o"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -11,35 +20,135 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06cyj")
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 360.0
-offset_top = 230.0
-offset_right = 560.0
-offset_bottom = 297.0
+[node name="Floor" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(600, 300)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_ml58b")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 1000)
 
-[node name="Label" type="Label" parent="Quit"]
+[node name="Circle" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -448.0
+offset_right = 448.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yddon")
+stretch_mode = 4
+
+[node name="Flying Items" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FlyingItem" parent="Flying Items" instance=ExtResource("4_y738q")]
+texture = ExtResource("5_1n8gw")
+SPEED = 15
+RADIUS = 400
+START_DEG = 23.0
+
+[node name="FlyingItem2" parent="Flying Items" instance=ExtResource("4_y738q")]
+texture = ExtResource("6_p4i5p")
+SPEED = 30
+RADIUS = 250
+START_DEG = 45.0
+
+[node name="FlyingItem3" parent="Flying Items" instance=ExtResource("4_y738q")]
+texture = ExtResource("7_uw06c")
+SPEED = -10
+RADIUS = 450
+START_DEG = 120.0
+
+[node name="FlyingItem4" parent="Flying Items" instance=ExtResource("4_y738q")]
+texture = ExtResource("8_303ph")
+SPEED = -20
+RADIUS = 320
+START_DEG = 280.0
+
+[node name="FlyingItem5" parent="Flying Items" instance=ExtResource("4_y738q")]
+texture = ExtResource("9_tba0o")
+SPEED = -35
+RADIUS = 500
+START_DEG = 280.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -224.0
+offset_right = 448.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_eky6a")
+stretch_mode = 4
+
+[node name="Quit" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 21.0
-offset_right = 98.0
-offset_bottom = 45.0
+offset_left = 169.0
+offset_top = 216.0
+offset_right = 369.0
+offset_bottom = 316.0
+flat = true
+
+[node name="Label" type="Label" parent="TextureRect/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -12.0
+offset_right = 20.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 80
 text = "Quit"
 
-[node name="Start" type="Button" parent="."]
+[node name="Start" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 140.0
-offset_right = 560.0
-offset_bottom = 207.0
+offset_left = 169.0
+offset_top = 83.0
+offset_right = 369.0
+offset_bottom = 183.0
+flat = true
 
-[node name="Label" type="Label" parent="Start"]
-layout_mode = 0
-offset_left = 79.0
-offset_top = 25.0
-offset_right = 117.0
-offset_bottom = 48.0
+[node name="Label2" type="Label" parent="TextureRect/Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -12.0
+offset_right = 20.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 80
 text = "Start"
 
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="TextureRect/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="TextureRect/Start" to="." method="_on_start_pressed"]

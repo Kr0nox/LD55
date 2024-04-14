@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://borh8njcj5fml"]
+
+[ext_resource type="Texture2D" uid="uid://csdr3d28oa32k" path="res://Sprites/Area/wall backside.png" id="1_kn5eq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5flfw"]
+size = Vector2(192, 64)
+
+[node name="WallPiceBottom" type="StaticBody2D"]
+position = Vector2(-6, 945.892)
+scale = Vector2(1, 1.00401)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kn5eq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5flfw")

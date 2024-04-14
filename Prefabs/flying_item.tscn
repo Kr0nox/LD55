@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgwa8pm6g1bph"]
+
+[ext_resource type="Script" path="res://Scripts/FlyingItem.gd" id="1_2yav0"]
+
+[node name="FlyingItem" type="Sprite2D"]
+position = Vector2(0, -271)
+scale = Vector2(3.5, 3.5)
+script = ExtResource("1_2yav0")

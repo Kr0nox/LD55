@@ -1,0 +1,33 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dav3tgqwcd7by"]
+
+[ext_resource type="Texture2D" uid="uid://cwtpufmd5200e" path="res://Sprites/Area/lever/lever up.png" id="1_rgfjl"]
+[ext_resource type="Texture2D" uid="uid://bmmi6cg3t0e12" path="res://Sprites/Area/lever/lever idle.png" id="2_yn4ec"]
+[ext_resource type="Texture2D" uid="uid://cbnvachy0mwl5" path="res://Sprites/Area/lever/lever down.png" id="3_3q0rj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rgfjl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yn4ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3q0rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yn4ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_rgfjl")
+}],
+"loop": false,
+"name": &"flip",
+"speed": 10.0
+}]

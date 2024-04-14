@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://ilkj6gbek8cd"]
+
+[ext_resource type="PackedScene" uid="uid://dhqyw3hcr6hsm" path="res://Prefabs/pillar.tscn" id="1_5aoq3"]
+[ext_resource type="PackedScene" uid="uid://dnbdtvdmyg808" path="res://Prefabs/Item.tscn" id="2_f3qy4"]
+
+[node name="SkullRiddle" type="Node2D"]
+position = Vector2(-304, -122)
+
+[node name="Pillar" parent="." node_paths=PackedStringArray("item") instance=ExtResource("1_5aoq3")]
+item = NodePath("")
+
+[node name="Item" parent="Pillar" node_paths=PackedStringArray("container") instance=ExtResource("2_f3qy4")]
+container = NodePath("")
+itemName = 17
+
+[node name="Pillar2" parent="." node_paths=PackedStringArray("item") instance=ExtResource("1_5aoq3")]
+position = Vector2(-52, 0)
+item = NodePath("")
+
+[node name="Item" parent="Pillar2" node_paths=PackedStringArray("container") instance=ExtResource("2_f3qy4")]
+container = NodePath("")
+
+[node name="Pillar3" parent="." node_paths=PackedStringArray("item") instance=ExtResource("1_5aoq3")]
+position = Vector2(51, 0)
+item = NodePath("")
+
+[node name="Item" parent="Pillar3" node_paths=PackedStringArray("container") instance=ExtResource("2_f3qy4")]
+container = NodePath("")
+itemName = 17
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -136.0
+offset_top = 32.0
+offset_right = 164.0
+offset_bottom = 72.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 13
+text = "Curiosity"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 7.0
+offset_right = 237.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 13
+text = "Knowledge"
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 6.0
+offset_right = 180.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 13
+text = "Interest"

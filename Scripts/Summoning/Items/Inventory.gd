@@ -2,18 +2,20 @@ extends CharacterBody2D
 class_name Inventory
 
 @export var sprites: Array[Sprite2D]
+@export var selector: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	redraw()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("next_item"):
-		_move_select(1)
-	elif Input.is_action_just_pressed("prev_item"):
 		_move_select(-1)
-	print(Game.selectedSlot)
+		redraw()
+	elif Input.is_action_just_pressed("prev_item"):
+		_move_select(1)
+		redraw()
 
 func _move_select(dir: int):
 	var old = Game.selectedSlot
@@ -41,11 +43,12 @@ func pickup(item: Item):
 	return true
 	
 func redraw():
+	selector.position = sprites[Game.selectedSlot].position
 	for i in Game.items.size():
 		if Game.items[i] == null:
 			sprites[i].texture = null
 		else:
-			sprites[i].texture = Game.items[i].texture
+			sprites[i].texture = Lookup.imageLookup[Game.items[i].itemName]
 
 func dropOff():
 	var item = Game.items[Game.selectedSlot]

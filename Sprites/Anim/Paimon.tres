@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://be2blvvoityfa"]
+
+[ext_resource type="Texture2D" uid="uid://b1jcfsw3nwck0" path="res://Sprites/Deamons/Paimon/paimon 1.png" id="1_qba65"]
+[ext_resource type="Texture2D" uid="uid://bpgy5v10kfou" path="res://Sprites/Deamons/Paimon/paimon 2.png" id="2_blher"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("1_qba65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_blher")
+}, {
+"duration": 3.0,
+"texture": ExtResource("1_qba65")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_blher")
+}, {
+"duration": 6.0,
+"texture": ExtResource("1_qba65")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_blher")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

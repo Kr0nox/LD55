@@ -1,104 +1,421 @@
-[gd_scene load_steps=10 format=3 uid="uid://bp4ithh5cvb7w"]
+[gd_scene load_steps=37 format=3 uid="uid://bp4ithh5cvb7w"]
 
 [ext_resource type="PackedScene" uid="uid://bqt0siv37u27f" path="res://Prefabs/player.tscn" id="1_kqa5g"]
 [ext_resource type="PackedScene" uid="uid://bvgtslrr3w3ve" path="res://Prefabs/drawingCircle.tscn" id="2_1q8dj"]
-[ext_resource type="Texture2D" uid="uid://xgn22dr2ec31" path="res://Sprites/floor.png" id="3_bjvbm"]
+[ext_resource type="Texture2D" uid="uid://xgn22dr2ec31" path="res://Sprites/Area/floor.png" id="3_bjvbm"]
 [ext_resource type="PackedScene" uid="uid://bh3e0sygjc3h5" path="res://Prefabs/bookshelf.tscn" id="4_5hbv0"]
+[ext_resource type="Texture2D" uid="uid://csdr3d28oa32k" path="res://Sprites/Area/wall backside.png" id="5_edo7o"]
+[ext_resource type="PackedScene" uid="uid://borh8njcj5fml" path="res://Prefabs/wall_pice_bottom.tscn" id="5_fud8v"]
 [ext_resource type="PackedScene" uid="uid://dnbdtvdmyg808" path="res://Prefabs/Item.tscn" id="5_w5hk2"]
-[ext_resource type="Texture2D" uid="uid://dxat5r3sy35gm" path="res://Sprites/Items/black cat skull.png" id="6_c46ad"]
+[ext_resource type="PackedScene" uid="uid://l6jpulix3jwb" path="res://Prefabs/wall_piece_top.tscn" id="7_6d3w0"]
 [ext_resource type="PackedScene" uid="uid://ei7bd7tlw4tq" path="res://Prefabs/Circle/PartItem.tscn" id="7_bi823"]
+[ext_resource type="Texture2D" uid="uid://hc1i5s6hghra" path="res://Sprites/Area/Graves/grave 1.png" id="7_vtyx5"]
+[ext_resource type="PackedScene" uid="uid://b6olqpr75lqg0" path="res://Prefabs/wall_side.tscn" id="7_x52k4"]
+[ext_resource type="Texture2D" uid="uid://dg4m12vu7a4b1" path="res://Sprites/Area/Graves/grave 2.png" id="8_qa3s6"]
+[ext_resource type="Texture2D" uid="uid://cmbw2qy1b7fmd" path="res://Sprites/Area/Graves/grave 3 1.png" id="9_31rhk"]
+[ext_resource type="Texture2D" uid="uid://b227j1c4brjdn" path="res://Sprites/Area/Graves/grave 3 2.png" id="11_ajlop"]
+[ext_resource type="Texture2D" uid="uid://6y3bkp8ki3nd" path="res://Sprites/Area/Flowerbed/back.png" id="12_10sbj"]
+[ext_resource type="Texture2D" uid="uid://bjrtwjwltjbhr" path="res://Sprites/Area/Flowerbed/middle.png" id="13_3gqkm"]
+[ext_resource type="Texture2D" uid="uid://boyh8sul0bj0v" path="res://Sprites/Area/Flowerbed/front.png" id="14_suxho"]
+[ext_resource type="Texture2D" uid="uid://cjgxok5er27we" path="res://Sprites/Area/apple tree.png" id="15_8qkyp"]
+[ext_resource type="Script" path="res://Scripts/Picker.gd" id="15_xmi5v"]
+[ext_resource type="Texture2D" uid="uid://t4dq3oejak8v" path="res://Sprites/Items/apple.png" id="16_3rmy2"]
+[ext_resource type="SpriteFrames" uid="uid://rr6ulgw6ns5g" path="res://Sprites/Anim/crow.tres" id="18_bie4v"]
+[ext_resource type="Script" path="res://Scripts/Crow.gd" id="19_h111h"]
+[ext_resource type="PackedScene" uid="uid://dhqyw3hcr6hsm" path="res://Prefabs/pillar.tscn" id="21_lvmkb"]
+[ext_resource type="Script" path="res://Scripts/LuckGame.gd" id="21_oyrv0"]
+[ext_resource type="Texture2D" uid="uid://c1pcower00vq3" path="res://Sprites/Area/gem.png" id="23_7l74y"]
+[ext_resource type="SpriteFrames" uid="uid://dav3tgqwcd7by" path="res://Sprites/Anim/lever.tres" id="24_tf3cl"]
+[ext_resource type="Texture2D" uid="uid://bydwavxicb0x7" path="res://Sprites/Area/goat head.png" id="25_wranb"]
+[ext_resource type="Texture2D" uid="uid://cmohyn4e12wew" path="res://Sprites/Items/goat horn.png" id="26_iu0ba"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_udcar"]
-size = Vector2(724, 29)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5flfw"]
+size = Vector2(192, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdt0q"]
-size = Vector2(41, 400.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37vfw"]
+size = Vector2(192, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evbec"]
+size = Vector2(12, 67)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_frhaq"]
+radius = 28.0
+height = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fihek"]
+size = Vector2(57, 88)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb12f"]
+radius = 45.0111
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4rspi"]
+radius = 19.105
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_llxbi"]
+radius = 14.0357
 
 [node name="Library" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_kqa5g")]
 z_index = 10
-position = Vector2(101, -50)
-
-[node name="Shelfs" type="Node2D" parent="."]
-position = Vector2(-24, -149)
-
-[node name="Bookshelf" parent="Shelfs" instance=ExtResource("4_5hbv0")]
-
-[node name="Bookshelf2" parent="Shelfs" instance=ExtResource("4_5hbv0")]
-position = Vector2(24, 1)
-
-[node name="Bookshelf3" parent="Shelfs" instance=ExtResource("4_5hbv0")]
-position = Vector2(48, 1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-531, -296)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(529, 629)
-shape = SubResource("RectangleShape2D_udcar")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Panel2" type="Panel" parent="StaticBody2D/CollisionShape2D2"]
-offset_left = -365.0
-offset_top = -17.0
-offset_right = 361.0
-offset_bottom = 14.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(918, 113)
-shape = SubResource("RectangleShape2D_qdt0q")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Panel3" type="Panel" parent="StaticBody2D/CollisionShape2D3"]
-offset_left = -19.0
-offset_top = -202.0
-offset_right = 22.0
-offset_bottom = 198.0
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(146, 660)
-shape = SubResource("RectangleShape2D_qdt0q")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Panel" type="Panel" parent="StaticBody2D/CollisionShape2D4"]
-offset_left = -18.0
-offset_top = -201.0
-offset_right = 22.0
-offset_bottom = 196.0
+position = Vector2(94, -97)
 
 [node name="DrawingCircle" parent="." instance=ExtResource("2_1q8dj")]
-position = Vector2(-2, 1)
 
-[node name="Floor" type="Sprite2D" parent="."]
+[node name="Room" type="Node2D" parent="."]
+
+[node name="Shelfs" type="Node2D" parent="Room"]
+position = Vector2(-24, -149)
+
+[node name="Bookshelf" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+
+[node name="Bookshelf2" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(24, 1)
+
+[node name="Bookshelf3" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(48, 1)
+
+[node name="Walls" type="Node2D" parent="Room"]
+position = Vector2(-76, 0)
+scale = Vector2(1, 0.998)
+
+[node name="WallPieceTop" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(-404, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop2" type="StaticBody2D" parent="Room/Walls"]
+position = Vector2(-212, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Walls/WallPieceTop2"]
+texture = ExtResource("5_edo7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Walls/WallPieceTop2"]
+shape = SubResource("RectangleShape2D_5flfw")
+
+[node name="WallPieceTop5" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(364, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop6" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(556, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop3" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(-20, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop4" type="StaticBody2D" parent="Room/Walls"]
+position = Vector2(172, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Walls/WallPieceTop4"]
+texture = ExtResource("5_edo7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Walls/WallPieceTop4"]
+shape = SubResource("RectangleShape2D_37vfw")
+
+[node name="WallPiceBottom" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(-404, 533.066)
+
+[node name="WallPiceBottom2" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(-212, 533.066)
+
+[node name="WallPiceBottom3" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(-20, 533.066)
+
+[node name="WallPiceBottom4" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(172, 533.066)
+
+[node name="WallPiceBottom5" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(364, 533.066)
+
+[node name="WallPiceBottom6" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(556, 533.066)
+
+[node name="WallSide" parent="Room/Walls" instance=ExtResource("7_x52k4")]
+position = Vector2(660, -436.874)
+
+[node name="Floor" type="Sprite2D" parent="Room"]
 z_index = -100
 texture_repeat = 2
 texture = ExtResource("3_bjvbm")
 region_enabled = true
-region_rect = Rect2(0, 0, 1000, 1000)
+region_rect = Rect2(0, 0, 1152, 1000)
 
-[node name="Item" parent="." instance=ExtResource("5_w5hk2")]
-position = Vector2(31, -12)
-itemName = "skull"
-texture = ExtResource("6_c46ad")
+[node name="Graves" type="Node2D" parent="Room"]
+position = Vector2(-515, 0)
+rotation = -1.57079
 
-[node name="PartItem" parent="." instance=ExtResource("7_bi823")]
+[node name="Grave1" type="Sprite2D" parent="Room/Graves"]
+position = Vector2(-32, 0)
+texture = ExtResource("7_vtyx5")
+
+[node name="Grave2" type="Sprite2D" parent="Room/Graves"]
+texture = ExtResource("8_qa3s6")
+
+[node name="Grave3" type="Node2D" parent="Room/Graves"]
+position = Vector2(32, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Graves/Grave3"]
+texture = ExtResource("9_31rhk")
+
+[node name="Item" parent="Room/Graves/Grave3" instance=ExtResource("5_w5hk2")]
+position = Vector2(4.00003, 11.9999)
+rotation = 1.5708
+itemName = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Room/Graves/Grave3"]
+texture = ExtResource("11_ajlop")
+
+[node name="Flowers" type="Node2D" parent="Room"]
+position = Vector2(484, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Flowers"]
+texture = ExtResource("12_10sbj")
+
+[node name="Lilly" parent="Room/Flowers" instance=ExtResource("5_w5hk2")]
+position = Vector2(22, -19)
+itemName = 8
+
+[node name="Sprite2D2" type="Sprite2D" parent="Room/Flowers"]
+texture = ExtResource("13_3gqkm")
+
+[node name="Yarrow" parent="Room/Flowers" instance=ExtResource("5_w5hk2")]
+position = Vector2(-16, 16)
+itemName = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="Room/Flowers"]
+texture = ExtResource("14_suxho")
+
+[node name="Tree" type="Area2D" parent="Room" node_paths=PackedStringArray("item")]
+position = Vector2(471, -121)
+script = ExtResource("15_xmi5v")
+item = NodePath("Item")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room/Tree"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Tree/StaticBody2D"]
+position = Vector2(-2, 16.5)
+shape = SubResource("RectangleShape2D_evbec")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room/Tree/StaticBody2D"]
+position = Vector2(1, -36)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_frhaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Tree"]
+position = Vector2(-1.5, 17.0001)
+rotation = -0.000140829
+shape = SubResource("RectangleShape2D_fihek")
+
+[node name="Tree" type="Sprite2D" parent="Room/Tree"]
+texture = ExtResource("15_8qkyp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Room/Tree"]
+position = Vector2(4, -43)
+texture = ExtResource("16_3rmy2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Room/Tree"]
+position = Vector2(30, -27)
+texture = ExtResource("16_3rmy2")
+
+[node name="Item" parent="Room/Tree" instance=ExtResource("5_w5hk2")]
+position = Vector2(-21, -32)
+itemName = 5
+
+[node name="Crow" type="Node2D" parent="Room"]
+
+[node name="Item" parent="Room/Crow" instance=ExtResource("5_w5hk2")]
+visible = false
+itemName = 7
+
+[node name="Crow" type="Area2D" parent="Room/Crow" node_paths=PackedStringArray("points", "anim", "item")]
+position = Vector2(479, -263)
+rotation = -1.5708
+script = ExtResource("19_h111h")
+points = [NodePath("../P02"), NodePath("../P01"), NodePath("../P10"), NodePath("../P09"), NodePath("../P04"), NodePath("../P06"), NodePath("../P08"), NodePath("../P03"), NodePath("../P07"), NodePath("../P05"), NodePath("../Goal")]
+anim = NodePath("Crow")
+item = NodePath("../Item")
+
+[node name="Crow" type="AnimatedSprite2D" parent="Room/Crow/Crow"]
+z_index = 50
+rotation = 1.5708
+sprite_frames = ExtResource("18_bie4v")
+frame_progress = 0.282324
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Crow/Crow"]
+shape = SubResource("CircleShape2D_kb12f")
+
+[node name="P01" type="Node2D" parent="Room/Crow"]
+position = Vector2(-406, -386)
+
+[node name="P02" type="Node2D" parent="Room/Crow"]
+position = Vector2(-455, -88)
+
+[node name="P03" type="Node2D" parent="Room/Crow"]
+position = Vector2(122, -208)
+
+[node name="P04" type="Node2D" parent="Room/Crow"]
+position = Vector2(-289, 112)
+
+[node name="P05" type="Node2D" parent="Room/Crow"]
+position = Vector2(239, 245)
+
+[node name="P06" type="Node2D" parent="Room/Crow"]
+position = Vector2(267, -289)
+
+[node name="P07" type="Node2D" parent="Room/Crow"]
+position = Vector2(79, 249)
+
+[node name="P08" type="Node2D" parent="Room/Crow"]
+position = Vector2(-410, 195)
+
+[node name="P09" type="Node2D" parent="Room/Crow"]
+position = Vector2(468, -382)
+
+[node name="P10" type="Node2D" parent="Room/Crow"]
+position = Vector2(456, 303)
+
+[node name="Goal" type="Node2D" parent="Room/Crow"]
+position = Vector2(1242, -1107)
+
+[node name="LuckGame" type="Area2D" parent="Room" node_paths=PackedStringArray("lights", "item", "pillar", "anim")]
+position = Vector2(-288, -500)
+script = ExtResource("21_oyrv0")
+lights = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("Sprite2D3")]
+item = NodePath("Pillar/Item")
+pillar = NodePath("Pillar")
+anim = NodePath("AnimatedSprite2D")
+
+[node name="Pillar" parent="Room/LuckGame" node_paths=PackedStringArray("item") instance=ExtResource("21_lvmkb")]
+position = Vector2(-49, 0)
+item = NodePath("Item")
+
+[node name="Item" parent="Room/LuckGame/Pillar" node_paths=PackedStringArray("container") instance=ExtResource("5_w5hk2")]
+container = NodePath("..")
+itemName = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/LuckGame"]
+position = Vector2(-75, -20)
+texture = ExtResource("23_7l74y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Room/LuckGame"]
+position = Vector2(-23, -20)
+texture = ExtResource("23_7l74y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Room/LuckGame"]
+position = Vector2(-49, -20)
+texture = ExtResource("23_7l74y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/LuckGame"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_4rspi")
+
+[node name="Control" type="Control" parent="Room/LuckGame"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 59.0
+offset_top = -41.0
+offset_right = 259.0
+offset_bottom = -1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Room/LuckGame/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = 12.0
+offset_right = -56.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "←Get lucky"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Room/LuckGame"]
+position = Vector2(0, -13)
+sprite_frames = ExtResource("24_tf3cl")
+animation = &"flip"
+frame = 3
+frame_progress = 1.0
+
+[node name="GoatHead" type="Area2D" parent="Room" node_paths=PackedStringArray("item")]
+position = Vector2(47, -515)
+script = ExtResource("15_xmi5v")
+item = NodePath("Item")
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/GoatHead"]
+texture = ExtResource("25_wranb")
+
+[node name="Horn" type="Sprite2D" parent="Room/GoatHead"]
+position = Vector2(-11, -11)
+texture = ExtResource("26_iu0ba")
+flip_h = true
+
+[node name="Item" parent="Room/GoatHead" instance=ExtResource("5_w5hk2")]
+position = Vector2(12, -11)
+itemName = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/GoatHead"]
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_llxbi")
+
+[node name="BloodPoodle" type="Area2D" parent="Room"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/BloodPoodle"]
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Item" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(150, -137)
+itemName = 1
+
+[node name="Item2" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(119, -133)
+itemName = 2
+
+[node name="Item3" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(148, -193)
+itemName = 13
+
+[node name="Item4" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(187, -141)
+itemName = 14
+
+[node name="Item5" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(197, -191)
+itemName = 4
+
+[node name="PartItem" parent="Items" instance=ExtResource("7_bi823")]
 modulate = Color(1, 0.141176, 0.439216, 1)
-position = Vector2(5, 20)
-id = "1_4"
+position = Vector2(168, -101)
 
-[node name="PartItem2" parent="." instance=ExtResource("7_bi823")]
+[node name="PartItem2" parent="Items" instance=ExtResource("7_bi823")]
 modulate = Color(1, 0.141176, 0.439216, 1)
-position = Vector2(-61, 20)
-id = "1_1"
+position = Vector2(168, -69)
+id = 1
 
-[node name="PartItem3" parent="." instance=ExtResource("7_bi823")]
+[node name="PartItem3" parent="Items" instance=ExtResource("7_bi823")]
 modulate = Color(1, 0.141176, 0.439216, 1)
-position = Vector2(35, 62)
-id = "1_2"
+position = Vector2(168, -38)
+id = 2
 
-[node name="PartItem4" parent="." instance=ExtResource("7_bi823")]
+[node name="PartItem4" parent="Items" instance=ExtResource("7_bi823")]
 modulate = Color(1, 0.141176, 0.439216, 1)
-position = Vector2(-30, 55)
-id = "1_3"
+position = Vector2(170, -5)
+id = 3
+
+[node name="PartItem5" parent="Items" instance=ExtResource("7_bi823")]
+modulate = Color(0.666667, 0.384314, 0.996078, 1)
+position = Vector2(170, 70)
+id = 4
+
+[connection signal="body_entered" from="Room/Tree" to="Room/Tree" method="enter"]
+[connection signal="body_exited" from="Room/Tree" to="Room/Tree" method="exit"]
+[connection signal="body_entered" from="Room/Crow/Crow" to="Room/Crow/Crow" method="enter"]
+[connection signal="body_exited" from="Room/Crow/Crow" to="Room/Crow/Crow" method="exit"]
+[connection signal="body_entered" from="Room/LuckGame" to="Room/LuckGame" method="_on_body_entered"]
+[connection signal="body_exited" from="Room/LuckGame" to="Room/LuckGame" method="_on_body_exited"]
+[connection signal="body_entered" from="Room/GoatHead" to="Room/GoatHead" method="enter"]
+[connection signal="body_exited" from="Room/GoatHead" to="Room/GoatHead" method="exit"]

@@ -7,7 +7,6 @@
 
 [node name="PartItem" type="Area2D"]
 script = ExtResource("1_nii3c")
-texture = ExtResource("2_dh7ir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.2, 1.2)

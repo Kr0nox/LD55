@@ -1,0 +1,270 @@
+[gd_scene load_steps=24 format=3 uid="uid://bp4ithh5cvb7w"]
+
+[ext_resource type="PackedScene" uid="uid://bqt0siv37u27f" path="res://Prefabs/player.tscn" id="1_kqa5g"]
+[ext_resource type="PackedScene" uid="uid://bvgtslrr3w3ve" path="res://Prefabs/drawingCircle.tscn" id="2_1q8dj"]
+[ext_resource type="Texture2D" uid="uid://xgn22dr2ec31" path="res://Sprites/Area/floor.png" id="3_bjvbm"]
+[ext_resource type="PackedScene" uid="uid://bh3e0sygjc3h5" path="res://Prefabs/bookshelf.tscn" id="4_5hbv0"]
+[ext_resource type="PackedScene" uid="uid://borh8njcj5fml" path="res://Prefabs/wall_pice_bottom.tscn" id="5_fud8v"]
+[ext_resource type="PackedScene" uid="uid://dnbdtvdmyg808" path="res://Prefabs/Item.tscn" id="5_w5hk2"]
+[ext_resource type="PackedScene" uid="uid://l6jpulix3jwb" path="res://Prefabs/wall_piece_top.tscn" id="7_6d3w0"]
+[ext_resource type="PackedScene" uid="uid://ei7bd7tlw4tq" path="res://Prefabs/Circle/PartItem.tscn" id="7_bi823"]
+[ext_resource type="Texture2D" uid="uid://hc1i5s6hghra" path="res://Sprites/Area/Graves/grave 1.png" id="7_vtyx5"]
+[ext_resource type="Texture2D" uid="uid://dg4m12vu7a4b1" path="res://Sprites/Area/Graves/grave 2.png" id="8_qa3s6"]
+[ext_resource type="Texture2D" uid="uid://cmbw2qy1b7fmd" path="res://Sprites/Area/Graves/grave 3 1.png" id="9_31rhk"]
+[ext_resource type="Texture2D" uid="uid://b227j1c4brjdn" path="res://Sprites/Area/Graves/grave 3 2.png" id="11_ajlop"]
+[ext_resource type="Texture2D" uid="uid://6y3bkp8ki3nd" path="res://Sprites/Area/Flowerbed/back.png" id="12_10sbj"]
+[ext_resource type="Texture2D" uid="uid://bjrtwjwltjbhr" path="res://Sprites/Area/Flowerbed/middle.png" id="13_3gqkm"]
+[ext_resource type="Texture2D" uid="uid://boyh8sul0bj0v" path="res://Sprites/Area/Flowerbed/front.png" id="14_suxho"]
+[ext_resource type="Texture2D" uid="uid://cjgxok5er27we" path="res://Sprites/Area/apple tree.png" id="15_8qkyp"]
+[ext_resource type="Script" path="res://Scripts/Container.gd" id="15_xmi5v"]
+[ext_resource type="Texture2D" uid="uid://t4dq3oejak8v" path="res://Sprites/Items/apple.png" id="16_3rmy2"]
+[ext_resource type="SpriteFrames" uid="uid://rr6ulgw6ns5g" path="res://Sprites/Anim/crow.tres" id="18_bie4v"]
+[ext_resource type="Script" path="res://Scripts/Crow.gd" id="19_h111h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evbec"]
+size = Vector2(12, 67)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_frhaq"]
+radius = 28.0
+height = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fihek"]
+size = Vector2(57, 88)
+
+[node name="Library" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_kqa5g")]
+z_index = 10
+position = Vector2(-240, 57)
+
+[node name="DrawingCircle" parent="." instance=ExtResource("2_1q8dj")]
+
+[node name="Room" type="Node2D" parent="."]
+
+[node name="Shelfs" type="Node2D" parent="Room"]
+position = Vector2(-24, -149)
+
+[node name="Bookshelf" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+
+[node name="Bookshelf2" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(24, 1)
+
+[node name="Bookshelf3" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(48, 1)
+
+[node name="Walls" type="Node2D" parent="Room"]
+position = Vector2(-76, 0)
+scale = Vector2(1, 0.998)
+
+[node name="WallPieceTop" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(-404, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop2" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(-212, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop5" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(364, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop6" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(556, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop3" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(-20, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPieceTop4" parent="Room/Walls" instance=ExtResource("7_6d3w0")]
+position = Vector2(172, -533.066)
+scale = Vector2(1, 1.002)
+
+[node name="WallPiceBottom" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(-404, 533.066)
+
+[node name="WallPiceBottom2" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(-212, 533.066)
+
+[node name="WallPiceBottom3" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(-20, 533.066)
+
+[node name="WallPiceBottom4" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(172, 533.066)
+
+[node name="WallPiceBottom5" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(364, 533.066)
+
+[node name="WallPiceBottom6" parent="Room/Walls" instance=ExtResource("5_fud8v")]
+position = Vector2(556, 533.066)
+
+[node name="Floor" type="Sprite2D" parent="Room"]
+z_index = -100
+texture_repeat = 2
+texture = ExtResource("3_bjvbm")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 1000)
+
+[node name="Graves" type="Node2D" parent="Room"]
+position = Vector2(-515, 0)
+rotation = -1.57079
+
+[node name="Grave1" type="Sprite2D" parent="Room/Graves"]
+position = Vector2(-32, 0)
+texture = ExtResource("7_vtyx5")
+
+[node name="Grave2" type="Sprite2D" parent="Room/Graves"]
+texture = ExtResource("8_qa3s6")
+
+[node name="Grave3" type="Node2D" parent="Room/Graves"]
+position = Vector2(32, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Graves/Grave3"]
+texture = ExtResource("9_31rhk")
+
+[node name="Item" parent="Room/Graves/Grave3" instance=ExtResource("5_w5hk2")]
+position = Vector2(4.00003, 11.9999)
+rotation = 1.5708
+itemName = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Room/Graves/Grave3"]
+texture = ExtResource("11_ajlop")
+
+[node name="Flowers" type="Node2D" parent="Room"]
+position = Vector2(383, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Flowers"]
+texture = ExtResource("12_10sbj")
+
+[node name="Lilly" parent="Room/Flowers" instance=ExtResource("5_w5hk2")]
+position = Vector2(22, -19)
+itemName = 8
+
+[node name="Sprite2D2" type="Sprite2D" parent="Room/Flowers"]
+texture = ExtResource("13_3gqkm")
+
+[node name="Yarrow" parent="Room/Flowers" instance=ExtResource("5_w5hk2")]
+position = Vector2(-16, 16)
+itemName = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="Room/Flowers"]
+texture = ExtResource("14_suxho")
+
+[node name="Tree" type="Area2D" parent="Room" node_paths=PackedStringArray("item")]
+position = Vector2(382, -107)
+script = ExtResource("15_xmi5v")
+item = NodePath("Item")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Room/Tree"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Tree/StaticBody2D"]
+position = Vector2(-2, 16.5)
+shape = SubResource("RectangleShape2D_evbec")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room/Tree/StaticBody2D"]
+position = Vector2(1, -36)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_frhaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Tree"]
+position = Vector2(-1.5, 17.0001)
+rotation = -0.000140829
+shape = SubResource("RectangleShape2D_fihek")
+
+[node name="Tree" type="Sprite2D" parent="Room/Tree"]
+texture = ExtResource("15_8qkyp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Room/Tree"]
+position = Vector2(4, -43)
+texture = ExtResource("16_3rmy2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Room/Tree"]
+position = Vector2(30, -27)
+texture = ExtResource("16_3rmy2")
+
+[node name="Item" parent="Room/Tree" instance=ExtResource("5_w5hk2")]
+position = Vector2(-21, -32)
+itemName = 5
+
+[node name="Crow" type="Node2D" parent="Room"]
+
+[node name="Crow" type="AnimatedSprite2D" parent="Room/Crow" node_paths=PackedStringArray("points")]
+z_index = 50
+sprite_frames = ExtResource("18_bie4v")
+frame_progress = 0.540976
+script = ExtResource("19_h111h")
+points = [NodePath("../P01"), NodePath("../P04"), NodePath("../P09"), NodePath("../P03"), NodePath("../P10"), NodePath("../P08"), NodePath("../P06"), NodePath("../P02"), NodePath("../P05"), NodePath("../P07")]
+
+[node name="P01" type="Node2D" parent="Room/Crow"]
+position = Vector2(-271, -5)
+
+[node name="P02" type="Node2D" parent="Room/Crow"]
+position = Vector2(-93, -78)
+
+[node name="P03" type="Node2D" parent="Room/Crow"]
+position = Vector2(-3, 90)
+
+[node name="P04" type="Node2D" parent="Room/Crow"]
+position = Vector2(-91, 179)
+
+[node name="P05" type="Node2D" parent="Room/Crow"]
+position = Vector2(-225, 165)
+
+[node name="P06" type="Node2D" parent="Room/Crow"]
+position = Vector2(-360, 93)
+
+[node name="P07" type="Node2D" parent="Room/Crow"]
+position = Vector2(110, 56)
+
+[node name="P08" type="Node2D" parent="Room/Crow"]
+position = Vector2(-236, -96)
+
+[node name="P09" type="Node2D" parent="Room/Crow"]
+position = Vector2(240, -137)
+
+[node name="P10" type="Node2D" parent="Room/Crow"]
+position = Vector2(225, 118)
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Item" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(150, -137)
+itemName = 1
+
+[node name="Item2" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(119, -133)
+itemName = 2
+
+[node name="Item3" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(148, -193)
+itemName = 13
+
+[node name="Item4" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(187, -141)
+itemName = 14
+
+[node name="Item5" parent="Items" instance=ExtResource("5_w5hk2")]
+position = Vector2(197, -191)
+itemName = 4
+
+[node name="PartItem" parent="Items" instance=ExtResource("7_bi823")]
+modulate = Color(1, 0.141176, 0.439216, 1)
+position = Vector2(168, -101)
+
+[node name="PartItem2" parent="Items" instance=ExtResource("7_bi823")]
+modulate = Color(1, 0.141176, 0.439216, 1)
+position = Vector2(168, -69)
+id = 1
+
+[node name="PartItem3" parent="Items" instance=ExtResource("7_bi823")]
+modulate = Color(1, 0.141176, 0.439216, 1)
+position = Vector2(168, -38)
+id = 2
+
+[node name="PartItem4" parent="Items" instance=ExtResource("7_bi823")]
+modulate = Color(1, 0.141176, 0.439216, 1)
+position = Vector2(170, -5)
+id = 3
+
+[connection signal="body_entered" from="Room/Tree" to="Room/Tree" method="enter"]
+[connection signal="body_exited" from="Room/Tree" to="Room/Tree" method="exit"]

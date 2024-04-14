@@ -29,6 +29,7 @@ func _process(_delta):
 			displayed = 0
 			label.clear()
 			nextLabel.visible = false
+			dialogs[0].callback.call()
 			dialogs.pop_front()
 			if dialogs.size() > 0:
 				icon.texture = dialogs[0].icon

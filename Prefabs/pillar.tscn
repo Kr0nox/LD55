@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhqyw3hcr6hsm"]
+
+[ext_resource type="Script" path="res://Scripts/Summoning/Bowl.gd" id="1_52qyb"]
+[ext_resource type="Texture2D" uid="uid://b4rbe4v8qjs3k" path="res://Sprites/Area/pillar.png" id="2_o7kyu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dc12g"]
+radius = 7.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i4c24"]
+radius = 14.0
+height = 52.0
+
+[node name="Pillar" type="Area2D"]
+script = ExtResource("1_52qyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 21)
+texture = ExtResource("2_o7kyu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 20)
+shape = SubResource("CapsuleShape2D_dc12g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+shape = SubResource("CapsuleShape2D_i4c24")
+
+[connection signal="body_entered" from="." to="." method="enter"]
+[connection signal="body_exited" from="." to="." method="exit"]

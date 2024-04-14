@@ -1,0 +1,300 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqt0siv37u27f"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_6yvxj"]
+[ext_resource type="Texture2D" uid="uid://busmb16hxm7b7" path="res://Sprites/item bar.png" id="2_2pvih"]
+[ext_resource type="SpriteFrames" uid="uid://dv265t6ga34mk" path="res://Sprites/Anim/player.tres" id="2_8cr7g"]
+[ext_resource type="Script" path="res://Scripts/DialogManager.gd" id="2_hrxkx"]
+[ext_resource type="Texture2D" uid="uid://b1krvx5rtcwd5" path="res://Sprites/item framer.png" id="3_cp51o"]
+[ext_resource type="Script" path="res://Scripts/Summoning/Book.gd" id="3_q8nuj"]
+[ext_resource type="Texture2D" uid="uid://bn4y3w2ckk1ix" path="res://Sprites/notebook.png" id="3_rgx3v"]
+[ext_resource type="Texture2D" uid="uid://g3mqxjhkix4s" path="res://Sprites/Cirlce_Small.png" id="6_y5ncp"]
+[ext_resource type="Texture2D" uid="uid://h5nf3uq4v74o" path="res://Sprites/Items/rabbits foot.png" id="7_mhoqn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04wkt"]
+radius = 7.0
+height = 18.0361
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dialogManager", "sprites")]
+scale = Vector2(1, 0.998)
+script = ExtResource("1_6yvxj")
+SPEED = 100.0
+dialogManager = NodePath("UI/Dialog")
+sprites = [NodePath("UI/Inventory/Panel/01"), NodePath("UI/Inventory/Panel/02"), NodePath("UI/Inventory/Panel/03"), NodePath("UI/Inventory/Panel/04"), NodePath("UI/Inventory/Panel/05"), NodePath("UI/Inventory/Panel/06"), NodePath("UI/Inventory/Panel/07"), NodePath("UI/Inventory/Panel/08"), NodePath("UI/Inventory/Panel/09"), NodePath("UI/Inventory/Panel/10")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+follow_viewport_scale = 600.999
+
+[node name="Inventory" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="TextureRect" parent="UI/Inventory"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 20.0
+offset_right = 400.0
+offset_bottom = 80.0
+grow_horizontal = 2
+texture = ExtResource("2_2pvih")
+stretch_mode = 5
+
+[node name="01" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(88, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="02" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(158, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="03" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(228, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="04" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(298, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="05" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(369, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="06" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(438, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="07" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(509, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="08" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(579, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="09" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(650, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="10" type="Sprite2D" parent="UI/Inventory/Panel"]
+position = Vector2(718, 30)
+scale = Vector2(2.5, 2.5)
+region_rect = Rect2(20, 0, 0, 0)
+
+[node name="Selected" type="Sprite2D" parent="UI/Inventory/Panel"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_cp51o")
+
+[node name="Dialog" type="Control" parent="UI" node_paths=PackedStringArray("nextLabel", "label", "icon")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hrxkx")
+nextLabel = NodePath("Container/TextPanel/Label")
+label = NodePath("Container/TextPanel/RichTextLabel")
+icon = NodePath("Container/IconPanel/Sprite2D")
+
+[node name="Container" type="Control" parent="UI/Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -575.0
+offset_top = -168.0
+offset_right = 575.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="IconPanel" type="Panel" parent="UI/Dialog/Container"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 150.0
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Dialog/Container/IconPanel"]
+
+[node name="TextPanel" type="Panel" parent="UI/Dialog/Container"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_right = 1150.0
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Dialog/Container/TextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "sadassssssssssssssssssssssssssssssa
+aaaaaaaaaaaaaaag"
+
+[node name="Label" type="Label" parent="UI/Dialog/Container/TextPanel"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 125.0
+offset_right = 895.0
+offset_bottom = 148.0
+text = "Enter to continue"
+
+[node name="Book" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_q8nuj")
+
+[node name="Book" type="TextureRect" parent="UI/Book"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -256.0
+offset_right = 512.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rgx3v")
+stretch_mode = 4
+
+[node name="Left" type="Control" parent="UI/Book/Book"]
+anchors_preset = 0
+offset_left = 293.0
+offset_top = 204.0
+offset_right = 333.0
+offset_bottom = 244.0
+
+[node name="Circle" type="TextureRect" parent="UI/Book/Book/Left"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -37.0
+offset_right = 93.0
+offset_bottom = 113.0
+texture = ExtResource("6_y5ncp")
+stretch_mode = 4
+
+[node name="Items" type="Control" parent="UI/Book/Book/Left"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="1" type="TextureRect" parent="UI/Book/Book/Left/Items"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = -105.0
+offset_right = -16.0
+offset_bottom = -41.0
+texture = ExtResource("7_mhoqn")
+stretch_mode = 4
+
+[node name="2" type="TextureRect" parent="UI/Book/Book/Left/Items"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = -105.0
+offset_right = 138.0
+offset_bottom = -41.0
+texture = ExtResource("7_mhoqn")
+stretch_mode = 4
+
+[node name="3" type="TextureRect" parent="UI/Book/Book/Left/Items"]
+layout_mode = 0
+offset_left = -109.0
+offset_top = -2.0
+offset_right = -45.0
+offset_bottom = 62.0
+texture = ExtResource("7_mhoqn")
+stretch_mode = 4
+
+[node name="4" type="TextureRect" parent="UI/Book/Book/Left/Items"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = -2.0
+offset_right = 173.0
+offset_bottom = 62.0
+texture = ExtResource("7_mhoqn")
+stretch_mode = 4
+
+[node name="5" type="TextureRect" parent="UI/Book/Book/Left/Items"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 95.0
+offset_right = -16.0
+offset_bottom = 159.0
+texture = ExtResource("7_mhoqn")
+stretch_mode = 4
+
+[node name="6" type="TextureRect" parent="UI/Book/Book/Left/Items"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 95.0
+offset_right = 138.0
+offset_bottom = 159.0
+texture = ExtResource("7_mhoqn")
+stretch_mode = 4
+
+[node name="List" type="RichTextLabel" parent="UI/Book/Book"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 115.0
+offset_right = 842.0
+offset_bottom = 375.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "1
+2
+3
+4
+5
+6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.00401)
+shape = SubResource("CapsuleShape2D_04wkt")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_8cr7g")
+animation = &"runL"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = -500
+limit_top = -500
+limit_right = 500
+limit_bottom = 500

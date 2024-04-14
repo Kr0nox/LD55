@@ -1,0 +1,178 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvgtslrr3w3ve"]
+
+[ext_resource type="Script" path="res://Scripts/Summoning/DrawingCircle.gd" id="1_robfh"]
+[ext_resource type="Texture2D" uid="uid://dlgxmdanb275n" path="res://Sprites/circle2.png" id="2_4gykh"]
+[ext_resource type="PackedScene" uid="uid://cua8jemw177yt" path="res://Prefabs/Circle/bowl.tscn" id="3_jngw2"]
+[ext_resource type="Script" path="res://Scripts/Summoning/CirclePart.gd" id="4_ke31y"]
+[ext_resource type="Texture2D" uid="uid://u4wdesutysr2" path="res://Sprites/test1.png" id="5_6wl22"]
+[ext_resource type="Script" path="res://Scripts/Summoning/Clip.gd" id="6_oqysg"]
+[ext_resource type="Material" uid="uid://dylq2irrbqakd" path="res://new_canvas_item_material.tres" id="7_p51pu"]
+
+[node name="DrawingCircle" type="Node2D" node_paths=PackedStringArray("bowls", "camera", "parts")]
+script = ExtResource("1_robfh")
+bowls = [NodePath("Bowls/Bowl"), NodePath("Bowls/Bowl2"), NodePath("Bowls/Bowl3"), NodePath("Bowls/Bowl4"), NodePath("Bowls/Bowl5"), NodePath("Bowls/Bowl6")]
+camera = NodePath("Camera2D")
+parts = [NodePath("DrawParts/CirclePart"), NodePath("DrawParts/CirclePart2"), NodePath("DrawParts/CirclePart3"), NodePath("DrawParts/CirclePart4")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_4gykh")
+
+[node name="Bowls" type="Node2D" parent="."]
+
+[node name="Bowl" parent="Bowls" node_paths=PackedStringArray("circle") instance=ExtResource("3_jngw2")]
+position = Vector2(-102, -51)
+circle = NodePath("../..")
+
+[node name="Bowl2" parent="Bowls" node_paths=PackedStringArray("circle") instance=ExtResource("3_jngw2")]
+position = Vector2(102, -51)
+circle = NodePath("../..")
+
+[node name="Bowl3" parent="Bowls" node_paths=PackedStringArray("circle") instance=ExtResource("3_jngw2")]
+position = Vector2(-115, 11)
+circle = NodePath("../..")
+
+[node name="Bowl4" parent="Bowls" node_paths=PackedStringArray("circle") instance=ExtResource("3_jngw2")]
+position = Vector2(112, 11)
+circle = NodePath("../..")
+
+[node name="Bowl5" parent="Bowls" node_paths=PackedStringArray("circle") instance=ExtResource("3_jngw2")]
+position = Vector2(-105, 71)
+circle = NodePath("../..")
+
+[node name="Bowl6" parent="Bowls" node_paths=PackedStringArray("circle") instance=ExtResource("3_jngw2")]
+position = Vector2(101, 71)
+circle = NodePath("../..")
+
+[node name="DrawParts" type="Node2D" parent="."]
+
+[node name="CirclePart" type="Area2D" parent="DrawParts" node_paths=PackedStringArray("sprite", "circle")]
+script = ExtResource("4_ke31y")
+sprite = NodePath("CanvasGroup4/Sprite2D")
+circle = NodePath("../..")
+index = 1
+
+[node name="CanvasGroup4" type="CanvasGroup" parent="DrawParts/CirclePart"]
+
+[node name="Sprite2D" type="Sprite2D" parent="DrawParts/CirclePart/CanvasGroup4"]
+texture = ExtResource("5_6wl22")
+script = ExtResource("6_oqysg")
+
+[node name="Polygon2D2" type="Polygon2D" parent="DrawParts/CirclePart/CanvasGroup4"]
+material = ExtResource("7_p51pu")
+rotation = 1.5708
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D3" type="Polygon2D" parent="DrawParts/CirclePart/CanvasGroup4"]
+material = ExtResource("7_p51pu")
+rotation = 3.14159
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D4" type="Polygon2D" parent="DrawParts/CirclePart/CanvasGroup4"]
+material = ExtResource("7_p51pu")
+rotation = 4.71239
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DrawParts/CirclePart"]
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="CirclePart2" type="Area2D" parent="DrawParts" node_paths=PackedStringArray("sprite", "circle")]
+script = ExtResource("4_ke31y")
+sprite = NodePath("CanvasGroup3/Sprite2D")
+circle = NodePath("../..")
+index = 2
+
+[node name="CanvasGroup3" type="CanvasGroup" parent="DrawParts/CirclePart2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="DrawParts/CirclePart2/CanvasGroup3"]
+texture = ExtResource("5_6wl22")
+script = ExtResource("6_oqysg")
+
+[node name="Polygon2D" type="Polygon2D" parent="DrawParts/CirclePart2/CanvasGroup3"]
+material = ExtResource("7_p51pu")
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D3" type="Polygon2D" parent="DrawParts/CirclePart2/CanvasGroup3"]
+material = ExtResource("7_p51pu")
+rotation = 3.14159
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D4" type="Polygon2D" parent="DrawParts/CirclePart2/CanvasGroup3"]
+material = ExtResource("7_p51pu")
+rotation = 4.71239
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DrawParts/CirclePart2"]
+rotation = 1.5708
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="CirclePart3" type="Area2D" parent="DrawParts" node_paths=PackedStringArray("sprite", "circle")]
+script = ExtResource("4_ke31y")
+sprite = NodePath("CanvasGroup2/Sprite2D")
+circle = NodePath("../..")
+index = 3
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="DrawParts/CirclePart3"]
+
+[node name="Sprite2D" type="Sprite2D" parent="DrawParts/CirclePart3/CanvasGroup2"]
+texture = ExtResource("5_6wl22")
+script = ExtResource("6_oqysg")
+
+[node name="Polygon2D" type="Polygon2D" parent="DrawParts/CirclePart3/CanvasGroup2"]
+material = ExtResource("7_p51pu")
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D2" type="Polygon2D" parent="DrawParts/CirclePart3/CanvasGroup2"]
+material = ExtResource("7_p51pu")
+rotation = 1.5708
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D4" type="Polygon2D" parent="DrawParts/CirclePart3/CanvasGroup2"]
+material = ExtResource("7_p51pu")
+rotation = 4.71239
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DrawParts/CirclePart3"]
+rotation = 3.14159
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="CirclePart4" type="Area2D" parent="DrawParts" node_paths=PackedStringArray("sprite", "circle")]
+script = ExtResource("4_ke31y")
+sprite = NodePath("CanvasGroup/Sprite2D")
+circle = NodePath("../..")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DrawParts/CirclePart4"]
+rotation = 4.71239
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="DrawParts/CirclePart4"]
+
+[node name="Sprite2D" type="Sprite2D" parent="DrawParts/CirclePart4/CanvasGroup"]
+texture = ExtResource("5_6wl22")
+script = ExtResource("6_oqysg")
+
+[node name="Polygon2D" type="Polygon2D" parent="DrawParts/CirclePart4/CanvasGroup"]
+material = ExtResource("7_p51pu")
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D2" type="Polygon2D" parent="DrawParts/CirclePart4/CanvasGroup"]
+material = ExtResource("7_p51pu")
+rotation = 1.5708
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Polygon2D3" type="Polygon2D" parent="DrawParts/CirclePart4/CanvasGroup"]
+material = ExtResource("7_p51pu")
+rotation = 3.14159
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 35, 75, 75, 35, 100, 0, 100)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[connection signal="body_entered" from="DrawParts/CirclePart" to="DrawParts/CirclePart" method="_on_body_entered"]
+[connection signal="body_exited" from="DrawParts/CirclePart" to="DrawParts/CirclePart" method="_on_body_exited"]
+[connection signal="body_entered" from="DrawParts/CirclePart2" to="DrawParts/CirclePart2" method="_on_body_entered"]
+[connection signal="body_exited" from="DrawParts/CirclePart2" to="DrawParts/CirclePart2" method="_on_body_exited"]
+[connection signal="body_entered" from="DrawParts/CirclePart3" to="DrawParts/CirclePart3" method="_on_body_entered"]
+[connection signal="body_exited" from="DrawParts/CirclePart3" to="DrawParts/CirclePart3" method="_on_body_exited"]
+[connection signal="body_entered" from="DrawParts/CirclePart4" to="DrawParts/CirclePart4" method="_on_body_entered"]
+[connection signal="body_exited" from="DrawParts/CirclePart4" to="DrawParts/CirclePart4" method="_on_body_exited"]
