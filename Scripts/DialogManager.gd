@@ -50,3 +50,7 @@ func add_dialog(d: Dialog):
 		icon.texture = d.icon
 		visible = true
 	dialogs.push_back(d)
+
+func add_all(d: Array[Dialog]):
+	for i in d:
+		add_dialog(i)

@@ -105,6 +105,73 @@ region_rect = Rect2(20, 0, 0, 0)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_cp51o")
 
+[node name="Dialog" type="Control" parent="UI" node_paths=PackedStringArray("nextLabel", "label", "icon")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hrxkx")
+nextLabel = NodePath("Container/TextPanel/Label")
+label = NodePath("Container/TextPanel/RichTextLabel")
+icon = NodePath("Container/IconPanel/Sprite2D")
+
+[node name="Container" type="Control" parent="UI/Dialog"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -575.0
+offset_top = -168.0
+offset_right = 575.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="IconPanel" type="Panel" parent="UI/Dialog/Container"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 150.0
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/Dialog/Container/IconPanel"]
+
+[node name="TextPanel" type="Panel" parent="UI/Dialog/Container"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_right = 1150.0
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Dialog/Container/TextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "sadassssssssssssssssssssssssssssssa
+aaaaaaaaaaaaaaag"
+
+[node name="Label" type="Label" parent="UI/Dialog/Container/TextPanel"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 125.0
+offset_right = 895.0
+offset_bottom = 148.0
+text = "Enter to continue"
+
 [node name="Book" type="Control" parent="UI" node_paths=PackedStringArray("list", "items", "masks")]
 visible = false
 layout_mode = 3
@@ -249,74 +316,6 @@ text = "1
 4
 5
 6"
-
-[node name="Dialog" type="Control" parent="UI" node_paths=PackedStringArray("nextLabel", "label", "icon")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_hrxkx")
-nextLabel = NodePath("Container/TextPanel/Label")
-label = NodePath("Container/TextPanel/RichTextLabel")
-icon = NodePath("Container/IconPanel/Sprite2D")
-
-[node name="Container" type="Control" parent="UI/Dialog"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -575.0
-offset_top = -168.0
-offset_right = 575.0
-offset_bottom = -18.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="IconPanel" type="Panel" parent="UI/Dialog/Container"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 150.0
-grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="UI/Dialog/Container/IconPanel"]
-
-[node name="TextPanel" type="Panel" parent="UI/Dialog/Container"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 200.0
-offset_right = 1150.0
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Dialog/Container/TextPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 30
-text = "sadassssssssssssssssssssssssssssssa
-aaaaaaaaaaaaaaag"
-
-[node name="Label" type="Label" parent="UI/Dialog/Container/TextPanel"]
-layout_mode = 0
-offset_left = 760.0
-offset_top = 125.0
-offset_right = 895.0
-offset_bottom = 148.0
-text = "Enter to continue"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.00401)

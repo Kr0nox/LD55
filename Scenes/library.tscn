@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://bp4ithh5cvb7w"]
+[gd_scene load_steps=38 format=3 uid="uid://bp4ithh5cvb7w"]
 
 [ext_resource type="PackedScene" uid="uid://bqt0siv37u27f" path="res://Prefabs/player.tscn" id="1_kqa5g"]
 [ext_resource type="PackedScene" uid="uid://bvgtslrr3w3ve" path="res://Prefabs/drawingCircle.tscn" id="2_1q8dj"]
 [ext_resource type="Texture2D" uid="uid://xgn22dr2ec31" path="res://Sprites/Area/floor.png" id="3_bjvbm"]
 [ext_resource type="PackedScene" uid="uid://bh3e0sygjc3h5" path="res://Prefabs/bookshelf.tscn" id="4_5hbv0"]
+[ext_resource type="Texture2D" uid="uid://vi5b8xrf5s73" path="res://Sprites/Unbenannt.png" id="4_fwhby"]
 [ext_resource type="Texture2D" uid="uid://csdr3d28oa32k" path="res://Sprites/Area/wall backside.png" id="5_edo7o"]
 [ext_resource type="PackedScene" uid="uid://borh8njcj5fml" path="res://Prefabs/wall_pice_bottom.tscn" id="5_fud8v"]
 [ext_resource type="PackedScene" uid="uid://dnbdtvdmyg808" path="res://Prefabs/Item.tscn" id="5_w5hk2"]
@@ -57,6 +58,7 @@ radius = 14.0357
 [node name="Library" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_kqa5g")]
+unique_name_in_owner = true
 z_index = 10
 position = Vector2(94, -97)
 
@@ -65,15 +67,174 @@ position = Vector2(94, -97)
 [node name="Room" type="Node2D" parent="."]
 
 [node name="Shelfs" type="Node2D" parent="Room"]
-position = Vector2(-24, -149)
+position = Vector2(-424, 401)
 
-[node name="Bookshelf" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+[node name="Bookshelf64" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(28, -82)
 
 [node name="Bookshelf2" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
-position = Vector2(24, 1)
+position = Vector2(124, 83)
 
-[node name="Bookshelf3" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
-position = Vector2(48, 1)
+[node name="Bookshelf6" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(4, 83)
+
+[node name="Bookshelf7" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-20, 83)
+
+[node name="Bookshelf13" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-140, 83)
+
+[node name="Bookshelf72" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-140, -82)
+
+[node name="Bookshelf14" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(124, 50)
+
+[node name="Bookshelf15" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(52, 50)
+
+[node name="Bookshelf17" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(4, 50)
+
+[node name="Bookshelf18" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-20, 50)
+
+[node name="Bookshelf19" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-44, 50)
+
+[node name="Bookshelf21" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-92, 50)
+
+[node name="Bookshelf23" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(100, 50)
+
+[node name="Bookshelf24" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-140, 50)
+
+[node name="Bookshelf33" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-92, 17)
+
+[node name="Bookshelf38" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(124, -16)
+
+[node name="Bookshelf40" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(28, -16)
+
+[node name="Bookshelf41" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(4, -16)
+
+[node name="Bookshelf42" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-20, -16)
+
+[node name="Bookshelf43" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-44, -16)
+
+[node name="Bookshelf47" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(100, -16)
+
+[node name="Bookshelf48" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-140, -16)
+
+[node name="Bookshelf49" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(76, -16)
+
+[node name="Bookshelf50" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(124, -49)
+
+[node name="Bookshelf54" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-20, -49)
+
+[node name="Bookshelf55" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-44, -49)
+
+[node name="Bookshelf56" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-68, -49)
+
+[node name="Bookshelf57" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-92, -49)
+
+[node name="Bookshelf58" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(52, -16)
+
+[node name="Bookshelf60" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-140, -49)
+
+[node name="Bookshelf74" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(124, -115)
+
+[node name="Bookshelf76" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(28, -115)
+
+[node name="Bookshelf77" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(4, -115)
+
+[node name="Bookshelf79" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-44, -115)
+
+[node name="Bookshelf81" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-92, -115)
+
+[node name="Bookshelf84" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-140, -115)
+
+[node name="Bookshelf62" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(124, -82)
+
+[node name="Bookshelf63" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(52, -82)
+
+[node name="Bookshelf69" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-92, -82)
+
+[node name="Bookshelf73" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(76, -82)
+
+[node name="Bookshelf89" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(4, -148)
+
+[node name="Bookshelf90" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-20, -148)
+
+[node name="Bookshelf97" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(76, -148)
+
+[node name="Bookshelf98" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(124, -181)
+
+[node name="Bookshelf99" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(52, -181)
+
+[node name="Bookshelf100" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(28, -181)
+
+[node name="Bookshelf101" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(4, -181)
+
+[node name="Bookshelf102" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-20, -181)
+
+[node name="Bookshelf103" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-44, -181)
+
+[node name="Bookshelf104" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-68, -181)
+
+[node name="Bookshelf105" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-92, -181)
+
+[node name="Bookshelf106" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-116, -181)
+
+[node name="Bookshelf108" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(-140, -181)
+
+[node name="Bookshelf109" parent="Room/Shelfs" instance=ExtResource("4_5hbv0")]
+position = Vector2(76, -181)
+
+[node name="Sprite2D" type="Sprite2D" parent="Room/Shelfs"]
+visible = false
+position = Vector2(-4, -56)
+texture = ExtResource("4_fwhby")
 
 [node name="Walls" type="Node2D" parent="Room"]
 position = Vector2(-76, 0)
@@ -394,22 +555,7 @@ position = Vector2(168, -101)
 [node name="PartItem2" parent="Items" instance=ExtResource("7_bi823")]
 modulate = Color(1, 0.141176, 0.439216, 1)
 position = Vector2(168, -69)
-id = 1
-
-[node name="PartItem3" parent="Items" instance=ExtResource("7_bi823")]
-modulate = Color(1, 0.141176, 0.439216, 1)
-position = Vector2(168, -38)
-id = 2
-
-[node name="PartItem4" parent="Items" instance=ExtResource("7_bi823")]
-modulate = Color(1, 0.141176, 0.439216, 1)
-position = Vector2(170, -5)
 id = 3
-
-[node name="PartItem5" parent="Items" instance=ExtResource("7_bi823")]
-modulate = Color(0.666667, 0.384314, 0.996078, 1)
-position = Vector2(170, 70)
-id = 4
 
 [connection signal="body_entered" from="Room/Tree" to="Room/Tree" method="enter"]
 [connection signal="body_exited" from="Room/Tree" to="Room/Tree" method="exit"]

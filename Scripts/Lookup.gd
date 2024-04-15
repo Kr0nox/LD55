@@ -21,7 +21,7 @@ enum ItemName {
 	FAKE_SKULL
 }
 
-var nameLookup = {
+const nameLookup = {
 	ItemName.SKULL: "Skull of a black cat",
 	ItemName.DIRT: "Gravejard Dirt",
 	ItemName.YARROW: "Yarrow Flowers",
@@ -41,7 +41,7 @@ var nameLookup = {
 	ItemName.NONE: ""
 }
 
-var imageLookup = {
+const imageLookup = {
 	ItemName.SKULL: preload("res://Sprites/Items/black cat skull.png"),
 	ItemName.DIRT: preload("res://Sprites/Items/bottle of graveyard dirt.png"),
 	ItemName.YARROW: preload("res://Sprites/Items/yarrow flower.png"),
@@ -73,9 +73,9 @@ var recipePaimon = Recipe.new(
 	[DrawingName.D11, DrawingName.D12, DrawingName.D13, DrawingName.D14],
 	[ItemName.NONE, ItemName.NONE, ItemName.DIRT, ItemName.YARROW, ItemName.NONE, ItemName.NONE], 
 	Deamon.new(
-		[Dialog.new("123", null), Dialog.new("456", null)],
-		null,
-		preload("res://Sprites/Anim/Paimon.tres")
+		dialogPaimon,
+		Item.new(ItemName.SHARD),
+		preload("res://Sprites/Anim/Paimon.tres")	
 	),
 	preload("res://Sprites/test1.png")
 )
@@ -84,8 +84,8 @@ var recipeAsmodeus = Recipe.new(
 	[DrawingName.D21, DrawingName.D22, DrawingName.D23, DrawingName.D24],
 	[ItemName.SKULL, ItemName.NONE, ItemName.NONE, ItemName.COAL, ItemName.VIRGIN, ItemName.NONE],
 	Deamon.new(
-		[Dialog.new("123", null)],
-		null,
+		dialogAsmodeus,
+		Item.new(ItemName.SIN),
 		null
 	),
 	preload("res://Sprites/test1.png")
@@ -95,9 +95,9 @@ var lilithRecipe = Recipe.new(
 	[DrawingName.D31, DrawingName.D32, DrawingName.D33, DrawingName.D34],
 	[ItemName.SALT, ItemName.RUBY, ItemName.FEATHER, ItemName.NONE, ItemName.LILY, ItemName.FOOT],
 	Deamon.new(
-		[Dialog.new("123", null)],
-		null,
-		null
+		dialogLilith,
+		Item.new(ItemName.HAIR),
+		null	
 	),
 	preload("res://Sprites/test1.png")
 )
@@ -106,7 +106,7 @@ var luciferRecipe = Recipe.new(
 	[DrawingName.D41, DrawingName.D42, DrawingName.D43, DrawingName.D44],
 	[ItemName.HAIR, ItemName.HORN, ItemName.SKIN, ItemName.SIN, ItemName.SHARD, ItemName.APPLE],
 	Deamon.new(
-		[Dialog.new("123", null)],
+		dialogLucifer,
 		null,
 		null
 	),
@@ -114,3 +114,71 @@ var luciferRecipe = Recipe.new(
 )
 
 var recipes = [recipePaimon, recipeAsmodeus, lilithRecipe, luciferRecipe]
+
+const nunBust = preload("res://Sprites/Player/bust.png")
+const paimonBust = preload("res://Sprites/Player/bust.png")
+const asmodeusBust = preload("res://Sprites/Player/bust.png")
+const lilithBust = preload("res://Sprites/Player/bust.png")
+const luciferHiddenBust = preload("res://Sprites/Player/bust.png")
+const luciferBust = preload("res://Sprites/Player/bust.png")
+var intro: Array[Dialog] = [
+	Dialog.new("The time has come.", nunBust),
+	Dialog.new("It is time to free the dark lord from his cage.", nunBust),
+	Dialog.new("But first I have to get my hands on some ingredients.", nunBust),
+	Dialog.new("Paimon, a deamon of knowledge, might help me.", nunBust),
+	Dialog.new("I'll find some information on how to summon him in my Notebook. (Open it with F)", nunBust)
+]
+var bookOpened: Array[Dialog] = [
+	Dialog.new("Seems like I did not write down the complete ritual.", nunBust),
+	Dialog.new("Maybe I can find the missing pieces in the southern library.", nunBust)
+]
+var pageEntered: Array[Dialog] = [
+	Dialog.new("Pick up the page by clicking E.", nunBust)
+]
+var bothPagesPickedUp: Array[Dialog] = [
+	Dialog.new("Now you can see the whole ritual in the book.", nunBust),
+	Dialog.new("The yarrow flower should be planted in my the east.", nunBust),
+	Dialog.new("The graveyard is in the west.", nunBust),
+	Dialog.new("Pick both up with E and place them in the right bowls using E.", nunBust),
+	Dialog.new("To draw the circle, stand in the area and press E.", nunBust)
+]
+var dialogPaimon: Array[Dialog] = [
+	Dialog.new("Hello child.", paimonBust),
+	Dialog.new("To summon the lord, you will need some help.", paimonBust),
+	Dialog.new("A sin must offer you their gift. Asmodues should do well.", paimonBust),
+	Dialog.new("Here is what I can offer you:", paimonBust),
+	Dialog.new("To find the skull, you must know what killed it.", paimonBust),
+	Dialog.new("To find the blood, see where you killed them.", paimonBust),
+	Dialog.new("At last, I will give you the gift.", paimonBust),
+	Dialog.new("Now go and read about the new ritual.", paimonBust)
+]
+var dialogAsmodeus: Array[Dialog] = [
+	Dialog.new("So you want to bring back Lucifer?", asmodeusBust),
+	Dialog.new("Well for that you need Lucifers first.", asmodeusBust),
+	Dialog.new("Lilith.", asmodeusBust),
+	Dialog.new("One thing you will need fresh from your flying friend.", asmodeusBust),
+	Dialog.new("For the luck charm, well, try your luc.k", asmodeusBust),
+	Dialog.new("The other ingredients you can find yourself.", asmodeusBust),
+	Dialog.new("The deamon Paimon said I needed something from you. A gift, lord.", nunBust),
+	Dialog.new("A yes. I see.", asmodeusBust),
+	Dialog.new("Take this. It is a prechious bottle. Don't loose it.", asmodeusBust)
+]
+var dialogLilith: Array[Dialog] = [
+	Dialog.new("Good child.", lilithBust),
+	Dialog.new("You have nearly done it.", lilithBust),
+	Dialog.new("Soon he will walk the earth once again.", lilithBust),
+	Dialog.new("His fruit you will need ripe and fresh.", lilithBust),
+	Dialog.new("One thing you take from his head.", lilithBust),
+	Dialog.new("At last take this strain of my head.", lilithBust),
+	Dialog.new("Now go and do your work.", lilithBust)
+]
+var dialogLucifer: Array[Dialog] = [
+	Dialog.new("My lord. Welcome back.", nunBust),
+	Dialog.new("I freed you, so you can end this world.", nunBust),
+	Dialog.new("Bäääähhhh", luciferHiddenBust),
+	Dialog.new("...? ...?", nunBust),
+	Dialog.new("Bääähhh, Bäääh, Bäääääähhhh!", luciferHiddenBust),
+	Dialog.new("What?... Is that...", nunBust),
+	Dialog.new("...a GOAT?!?!??!?", nunBust),
+	Dialog.new("Bäääähhh.", luciferBust)
+]
