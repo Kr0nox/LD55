@@ -6,7 +6,10 @@ class_name DrawingCircle
 @export var parts: Array[CirclePart]
 @export var innerCircle: Sprite2D
 var drawnParts = 0
-	
+
+func _ready():
+	innerCircle.texture = Game.recipe.circle
+
 func check():
 	for p in parts:
 		if !p.drawn:
@@ -17,8 +20,7 @@ func check():
 				return
 		elif bowls[i].item.itemName != Game.recipe.items[i]:
 			return
-
-	print("SUMMON")			
+		
 	for b in bowls:
 		if b.item != null:
 			b.item.queue_free()
@@ -37,8 +39,10 @@ func demon_callback(oldCam: Camera2D):
 	if Game.recipeIndex < 4:
 		Game.recipe = Lookup.recipes[Game.recipeIndex]
 		innerCircle.texture = Game.recipe.circle
+		%ItemReviel.ac_i()
 	else:
-		pass
+		innerCircle.texture = null
+		GlobalSceneManager.end()
 
 func reset_drawing():
 	for p in parts:

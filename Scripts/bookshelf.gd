@@ -20,6 +20,7 @@ func _gen_row(index: int, rng: RandomNumberGenerator):
 	var fill = 0.0
 	var fails = 0
 	while (fill/width) < count && fails < 3:
+		print(fails)
 		var c = false
 		var book = textures[rng.randi_range(0, textures.size() - 1)]
 		var sprite = Sprite2D.new()

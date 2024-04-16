@@ -3,13 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://6frnfnfb5gr3" path="res://Sprites/Area/wall side.png" id="1_ew0jw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxgvt"]
-size = Vector2(5, 128.246)
+size = Vector2(5, 192)
 
 [node name="WallSide" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_ew0jw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.5, 0.00500727)
+position = Vector2(29.5, 2.86102e-06)
 shape = SubResource("RectangleShape2D_oxgvt")

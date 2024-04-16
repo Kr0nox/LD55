@@ -1,0 +1,24 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cth4775if8c5v"]
+
+[ext_resource type="Texture2D" uid="uid://bi42v8wsgeelc" path="res://Sprites/Deamons/Lilith/lillith 1.png" id="1_hctd5"]
+[ext_resource type="Texture2D" uid="uid://brt5av3ubdxft" path="res://Sprites/Deamons/Lilith/lillith 2.png" id="2_ee40j"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_hctd5")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_ee40j")
+}, {
+"duration": 5.0,
+"texture": ExtResource("1_hctd5")
+}, {
+"duration": 6.0,
+"texture": ExtResource("2_ee40j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

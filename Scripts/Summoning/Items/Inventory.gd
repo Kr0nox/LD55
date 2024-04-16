@@ -39,6 +39,8 @@ func pickup(item: Item):
 	if i == Game.items.size():
 		return false
 	Game.items[i] = item
+	if !Game.collectedItems.has(item.itemName):
+		Game.collectedItems.push_back(item.itemName)
 	redraw()
 	return true
 	

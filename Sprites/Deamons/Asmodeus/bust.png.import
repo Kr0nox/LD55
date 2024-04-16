@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g3mqxjhkix4s"
-path="res://.godot/imported/Cirlce_Small.png-ea1a79855bcd13b00d460b6ca9c2310b.ctex"
+uid="uid://30kwlehx7sal"
+path="res://.godot/imported/bust.png-4448afe1a5969dabdcbd387bbfca800d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Cirlce_Small.png"
-dest_files=["res://.godot/imported/Cirlce_Small.png-ea1a79855bcd13b00d460b6ca9c2310b.ctex"]
+source_file="res://Sprites/Deamons/Asmodeus/bust.png"
+dest_files=["res://.godot/imported/bust.png-4448afe1a5969dabdcbd387bbfca800d.ctex"]
 
 [params]
 

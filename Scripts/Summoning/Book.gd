@@ -4,6 +4,7 @@ class_name Book
 @export var list: RichTextLabel
 @export var items: Array[TextureRect]
 @export var masks: Array[CanvasItem]
+@export var circle: TextureRect
 var firstOpened = false
 
 # Called when the node enters the scene tree for the first time.
@@ -30,6 +31,7 @@ func render():
 		if Game.recipe.items[i] != Lookup.ItemName.NONE && is_known(i):
 			list.append_text("- " + Lookup.nameLookup[Game.recipe.items[i]] + "\n")
 	
+	circle.texture = Game.recipe.sCircle
 	for i in masks.size():
 		masks[i].visible = !Game.learned.has(Game.recipe.drawingParts[i])
 		

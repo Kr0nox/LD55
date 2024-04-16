@@ -10,6 +10,8 @@ var dir = Vector2.UP
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.play("default")
+	item.set_process(false)
+	item.visible = false
 	_next()
 
 

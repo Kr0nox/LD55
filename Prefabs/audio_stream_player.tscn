@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bww12wsgahpq4"]
+
+[ext_resource type="AudioStream" uid="uid://6xsfu08qitx4" path="res://Non-Copyrighted-Music_-Scott-Buckley-World-of-Magic-_Epic_.mp3" id="1_3piy4"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_3piy4")
+volume_db = -20.0
+autoplay = true

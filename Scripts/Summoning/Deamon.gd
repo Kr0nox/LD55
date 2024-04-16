@@ -24,7 +24,6 @@ func _process(delta):
 func spawn_reward():
 	if reward != null:
 		var item = preload("res://Prefabs/Item.tscn").instantiate()
-		item.texture = reward.texture
 		item.itemName = reward.itemName
 		get_tree().current_scene.add_child(item)
 		item.global_position.x = 0

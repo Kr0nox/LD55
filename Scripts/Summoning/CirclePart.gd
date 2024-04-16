@@ -9,6 +9,7 @@ var drawn = false
 var pulseDir = 1
 const minAlpha = 0.4
 const maxAlpha = 0.8
+var a = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,19 +17,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	a = a + pulseDir * delta / 10
+	if a >= maxAlpha:
+		a = maxAlpha
+		pulseDir = -1
+	elif a <= minAlpha:
+		a = minAlpha
+		pulseDir = 1
+		
 	if drawn:
 		return
 	if !Game.learned.has(Game.recipe.drawingParts[index]):
 		return
 	
-	var temp = mask.modulate.a + pulseDir * delta /3
-	if temp >= maxAlpha:
-		temp = maxAlpha
-		pulseDir = -1
-	elif temp <= minAlpha:
-		temp = minAlpha
-		pulseDir = 1
-	mask.modulate.a = temp
+	mask.modulate.a = a
 	
 	if !isEntered:
 		return
@@ -36,7 +38,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("do"):
 		drawn = true
 		mask.modulate.a = 0
-		pulseDir = 0
 		circle.check()
 	
 

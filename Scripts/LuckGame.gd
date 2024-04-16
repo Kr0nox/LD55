@@ -10,7 +10,6 @@ var firstTry = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("start")
 	pillar.set_process(false)
 	item.set_process(false)
 	item.visible = false
@@ -23,7 +22,6 @@ func _process(delta):
 	if !entered:
 		return
 		
-	
 	if anim.is_playing():
 		return
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://5at0isy820n7"]
+[gd_scene load_steps=12 format=3 uid="uid://5at0isy820n7"]
 
 [ext_resource type="Script" path="res://Scripts/titleMenu.gd" id="1_06cyj"]
 [ext_resource type="Texture2D" uid="uid://xgn22dr2ec31" path="res://Sprites/Area/floor.png" id="2_ml58b"]
 [ext_resource type="Texture2D" uid="uid://bn4y3w2ckk1ix" path="res://Sprites/notebook.png" id="3_eky6a"]
-[ext_resource type="Texture2D" uid="uid://clggkp4t6wxlf" path="res://Sprites/circleOnly.png" id="3_yddon"]
+[ext_resource type="Texture2D" uid="uid://55t7c34vwrj4" path="res://Sprites/Circle/circle.png" id="3_tyri2"]
+[ext_resource type="Texture2D" uid="uid://c0ngjqek1wr8g" path="res://Sprites/Circle/asmodeus sigil.png" id="4_mi771"]
 [ext_resource type="PackedScene" uid="uid://dgwa8pm6g1bph" path="res://Prefabs/flying_item.tscn" id="4_y738q"]
 [ext_resource type="Texture2D" uid="uid://dxat5r3sy35gm" path="res://Sprites/Items/black cat skull.png" id="5_1n8gw"]
 [ext_resource type="Texture2D" uid="uid://bp74xdx7m3nof" path="res://Sprites/Items/bottle of virgin blood.png" id="6_p4i5p"]
@@ -36,12 +37,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -448.0
+offset_top = -472.0
+offset_right = 448.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tyri2")
+stretch_mode = 4
+
+[node name="Circle2" type="TextureRect" parent="Circle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
 offset_top = -448.0
 offset_right = 448.0
 offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_yddon")
+texture = ExtResource("4_mi771")
 stretch_mode = 4
 
 [node name="Flying Items" type="Control" parent="."]
@@ -149,6 +166,36 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_font_sizes/font_size = 80
 text = "Start"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 102.0
+offset_right = 734.0
+offset_bottom = 354.0
+theme_override_colors/default_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "Controls:
+Move: W/A/S/D
+Pickup/Interact: E
+Open notebook: F
+Change item: Mousewheel
+Next dialog: Q"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -291.0
+offset_top = -28.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Music: Scott Buckley - World of Magic"
 
 [connection signal="pressed" from="TextureRect/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="TextureRect/Start" to="." method="_on_start_pressed"]

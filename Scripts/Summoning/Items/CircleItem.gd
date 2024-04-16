@@ -13,6 +13,6 @@ func pickup(_body: Node2D):
 
 func enter(body: Node2D):
 	super(body)
-	if !enteredAtLeastOnce:
+	if entered != null && !enteredAtLeastOnce:
 		enteredAtLeastOnce = true
 		%Player.find_child("Dialog", true).add_all(Lookup.pageEntered)

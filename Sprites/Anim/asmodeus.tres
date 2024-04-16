@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://csnngn3tply47"]
+
+[ext_resource type="Texture2D" uid="uid://dkrbj4ru0fc1m" path="res://Sprites/Deamons/Asmodeus/asmodeus 1.png" id="1_n80d7"]
+[ext_resource type="Texture2D" uid="uid://bu2nw1xbra16b" path="res://Sprites/Deamons/Asmodeus/asmodeus 2.png" id="2_0n8jd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("1_n80d7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0n8jd")
+}, {
+"duration": 2.0,
+"texture": ExtResource("1_n80d7")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_0n8jd")
+}, {
+"duration": 5.0,
+"texture": ExtResource("1_n80d7")
+}, {
+"duration": 0.8,
+"texture": ExtResource("2_0n8jd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]

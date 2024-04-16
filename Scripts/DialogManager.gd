@@ -5,7 +5,7 @@ var dialogs: Array[Dialog] =  []
 var displayed = 0
 @export var nextLabel: Label
 @export var label: RichTextLabel
-@export var icon: Sprite2D
+@export var icon: TextureRect
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +19,7 @@ func _process(_delta):
 	if dialogs.size() == 0:
 		return
 	
-	if Input.is_action_just_pressed("enter"):
+	if Input.is_action_just_pressed("drop"):
 		if displayed < dialogs[0].text.length():
 			label.clear()
 			label.append_text(dialogs[0].text)

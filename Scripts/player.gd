@@ -1,7 +1,7 @@
 extends Inventory
 
 
-@export var SPEED = 300.0
+@export var SPEED = 70
 @export var BRAKE = 15.0
 @export var dialogManager: DialogManager
 @export var book: Book

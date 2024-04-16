@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://4d8qmkx5exu1"]
+
+[ext_resource type="Texture2D" uid="uid://ehhytdctvan0" path="res://Sprites/Deamons/Lucifer/lucifer up.png" id="1_k8l7v"]
+[ext_resource type="Texture2D" uid="uid://b6gyob4xa7acl" path="res://Sprites/Deamons/Lucifer/lucifer down.png" id="2_0qj8t"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k8l7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0qj8t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]

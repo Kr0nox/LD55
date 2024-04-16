@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqt0siv37u27f"]
+[gd_scene load_steps=19 format=3 uid="uid://bqt0siv37u27f"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_6yvxj"]
 [ext_resource type="Texture2D" uid="uid://busmb16hxm7b7" path="res://Sprites/item bar.png" id="2_2pvih"]
@@ -7,10 +7,50 @@
 [ext_resource type="Texture2D" uid="uid://b1krvx5rtcwd5" path="res://Sprites/item framer.png" id="3_cp51o"]
 [ext_resource type="Script" path="res://Scripts/Summoning/Book.gd" id="3_q8nuj"]
 [ext_resource type="Texture2D" uid="uid://bn4y3w2ckk1ix" path="res://Sprites/notebook.png" id="3_rgx3v"]
-[ext_resource type="Texture2D" uid="uid://g3mqxjhkix4s" path="res://Sprites/Cirlce_Small.png" id="6_y5ncp"]
+[ext_resource type="Texture2D" uid="uid://g3mqxjhkix4s" path="res://Sprites/Circle/Cirlce_Small.png" id="6_lfolx"]
 [ext_resource type="Texture2D" uid="uid://h5nf3uq4v74o" path="res://Sprites/Items/rabbits foot.png" id="7_mhoqn"]
 [ext_resource type="Texture2D" uid="uid://bnn65maqm5gd2" path="res://Sprites/Cirlce_Small_1.png" id="8_giwh8"]
 [ext_resource type="Material" uid="uid://dylq2irrbqakd" path="res://new_canvas_item_material.tres" id="9_flqaw"]
+[ext_resource type="Texture2D" uid="uid://dkdd2dq6u5s3x" path="res://Sprites/character box.png" id="11_fp3vg"]
+[ext_resource type="Texture2D" uid="uid://bkwm7et1gke2i" path="res://Sprites/Player/bust.png" id="11_upvk2"]
+[ext_resource type="Script" path="res://Prefabs/Fader.gd" id="13_nr7rj"]
+
+[sub_resource type="Animation" id="Animation_ixgwv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ccs67"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j33t3"]
+_data = {
+"RESET": SubResource("Animation_ixgwv"),
+"default": SubResource("Animation_ccs67")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_04wkt"]
 radius = 7.0
@@ -19,7 +59,6 @@ height = 18.0361
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dialogManager", "book", "sprites", "selector")]
 scale = Vector2(1, 0.998)
 script = ExtResource("1_6yvxj")
-SPEED = 100.0
 dialogManager = NodePath("UI/Dialog")
 book = NodePath("UI/Book")
 sprites = [NodePath("UI/Inventory/Panel/01"), NodePath("UI/Inventory/Panel/02"), NodePath("UI/Inventory/Panel/03"), NodePath("UI/Inventory/Panel/04"), NodePath("UI/Inventory/Panel/05"), NodePath("UI/Inventory/Panel/06"), NodePath("UI/Inventory/Panel/07"), NodePath("UI/Inventory/Panel/08"), NodePath("UI/Inventory/Panel/09"), NodePath("UI/Inventory/Panel/10")]
@@ -105,7 +144,7 @@ region_rect = Rect2(20, 0, 0, 0)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_cp51o")
 
-[node name="Book" type="Control" parent="UI" node_paths=PackedStringArray("list", "items", "masks")]
+[node name="Book" type="Control" parent="UI" node_paths=PackedStringArray("list", "items", "masks", "circle")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -117,6 +156,7 @@ script = ExtResource("3_q8nuj")
 list = NodePath("Book/List")
 items = [NodePath("Book/Left/Items/1"), NodePath("Book/Left/Items/2"), NodePath("Book/Left/Items/3"), NodePath("Book/Left/Items/4"), NodePath("Book/Left/Items/5"), NodePath("Book/Left/Items/6")]
 masks = [NodePath("Book/Left/Circle/CanvasGroup/M0"), NodePath("Book/Left/Circle/CanvasGroup/M1"), NodePath("Book/Left/Circle/CanvasGroup/M2"), NodePath("Book/Left/Circle/CanvasGroup/M3")]
+circle = NodePath("Book/Left/Circle/CanvasGroup/TextureRect")
 
 [node name="Book" type="TextureRect" parent="UI/Book"]
 layout_mode = 1
@@ -147,7 +187,7 @@ offset_left = -35.0
 offset_top = -37.0
 offset_right = 93.0
 offset_bottom = 91.0
-texture = ExtResource("6_y5ncp")
+texture = ExtResource("6_lfolx")
 stretch_mode = 4
 
 [node name="CanvasGroup" type="CanvasGroup" parent="UI/Book/Book/Left/Circle"]
@@ -250,9 +290,34 @@ text = "1
 5
 6"
 
+[node name="Fader" type="Control" parent="UI" node_paths=PackedStringArray("dialog")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_nr7rj")
+dialog = NodePath("../Dialog")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Fader"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Fader/ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_j33t3")
+}
+
 [node name="Dialog" type="Control" parent="UI" node_paths=PackedStringArray("nextLabel", "label", "icon")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -262,7 +327,7 @@ grow_vertical = 2
 script = ExtResource("2_hrxkx")
 nextLabel = NodePath("Container/TextPanel/Label")
 label = NodePath("Container/TextPanel/RichTextLabel")
-icon = NodePath("Container/IconPanel/Sprite2D")
+icon = NodePath("Container/IconPanel/TextureRect")
 
 [node name="Container" type="Control" parent="UI/Dialog"]
 layout_mode = 1
@@ -271,29 +336,79 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -575.0
-offset_top = -168.0
-offset_right = 575.0
-offset_bottom = -18.0
+offset_left = -550.0
+offset_top = -148.0
+offset_right = 550.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="IconPanel" type="Panel" parent="UI/Dialog/Container"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 150.0
+offset_bottom = -10.0
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/Dialog/Container/IconPanel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Dialog/Container/IconPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -128.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("11_fp3vg")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Dialog/Container/IconPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -59.0
+offset_right = 41.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_upvk2")
+stretch_mode = 4
 
 [node name="TextPanel" type="Panel" parent="UI/Dialog/Container"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 200.0
-offset_right = 1150.0
+offset_left = 148.0
+offset_right = 1098.0
+offset_bottom = -10.0
 grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Dialog/Container/TextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -792.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("11_fp3vg")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Dialog/Container/TextPanel"]
 layout_mode = 1
@@ -312,11 +427,11 @@ aaaaaaaaaaaaaaag"
 
 [node name="Label" type="Label" parent="UI/Dialog/Container/TextPanel"]
 layout_mode = 0
-offset_left = 760.0
-offset_top = 125.0
-offset_right = 895.0
-offset_bottom = 148.0
-text = "Enter to continue"
+offset_left = 774.0
+offset_top = 100.0
+offset_right = 925.0
+offset_bottom = 123.0
+text = "Press Q to continue"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.00401)
@@ -329,7 +444,9 @@ animation = &"runL"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-limit_left = -581
-limit_top = -560
-limit_right = 581
-limit_bottom = 520
+limit_left = -465
+limit_top = -350
+limit_right = 325
+limit_bottom = 385
+
+[connection signal="animation_finished" from="UI/Fader/ColorRect/AnimationPlayer" to="UI/Fader" method="menu"]

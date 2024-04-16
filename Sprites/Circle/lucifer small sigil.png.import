@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlgxmdanb275n"
-path="res://.godot/imported/circle2.png-636ef825158c5a6514e731f533617ee6.ctex"
+uid="uid://ml3eoa7vavcv"
+path="res://.godot/imported/lucifer small sigil.png-e0c4aab28bd6c0db7faaa85f0b627f66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/circle2.png"
-dest_files=["res://.godot/imported/circle2.png-636ef825158c5a6514e731f533617ee6.ctex"]
+source_file="res://Sprites/Circle/lucifer small sigil.png"
+dest_files=["res://.godot/imported/lucifer small sigil.png-e0c4aab28bd6c0db7faaa85f0b627f66.ctex"]
 
 [params]
 

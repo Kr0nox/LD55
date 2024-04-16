@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvgtslrr3w3ve"]
 
 [ext_resource type="Script" path="res://Scripts/Summoning/DrawingCircle.gd" id="1_robfh"]
-[ext_resource type="Texture2D" uid="uid://clggkp4t6wxlf" path="res://Sprites/circleOnly.png" id="2_qojkd"]
+[ext_resource type="Texture2D" uid="uid://55t7c34vwrj4" path="res://Sprites/Circle/circle.png" id="2_wwx1h"]
 [ext_resource type="PackedScene" uid="uid://cua8jemw177yt" path="res://Prefabs/Circle/bowl.tscn" id="3_jngw2"]
 [ext_resource type="Texture2D" uid="uid://j6rf7creg1a0" path="res://Sprites/Bowls.png" id="3_x5uxk"]
 [ext_resource type="Script" path="res://Scripts/Summoning/CirclePart.gd" id="4_ke31y"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://dylq2irrbqakd" path="res://new_canvas_item_material.tres" id="7_p51pu"]
 
 [node name="DrawingCircle" type="Node2D" node_paths=PackedStringArray("bowls", "camera", "parts", "innerCircle")]
+z_index = -1
 script = ExtResource("1_robfh")
 bowls = [NodePath("Bowls/Bowl"), NodePath("Bowls/Bowl2"), NodePath("Bowls/Bowl3"), NodePath("Bowls/Bowl4"), NodePath("Bowls/Bowl5"), NodePath("Bowls/Bowl6")]
 camera = NodePath("Camera2D")
@@ -17,7 +18,7 @@ innerCircle = NodePath("DrawParts/Inner")
 
 [node name="Circle" type="Sprite2D" parent="."]
 z_index = 1
-texture = ExtResource("2_qojkd")
+texture = ExtResource("2_wwx1h")
 
 [node name="Bowls" type="Sprite2D" parent="."]
 texture = ExtResource("3_x5uxk")
@@ -47,6 +48,7 @@ position = Vector2(101, 71)
 circle = NodePath("../..")
 
 [node name="DrawParts" type="CanvasGroup" parent="."]
+z_index = -2
 
 [node name="Inner" type="Sprite2D" parent="DrawParts"]
 texture = ExtResource("5_6wl22")
@@ -57,7 +59,7 @@ mask = NodePath("Polygon2D2")
 circle = NodePath("../..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DrawParts/M1"]
-polygon = PackedVector2Array(0, 0, 100, 0, 100, -35, 75, -75, 35, -100, 0, -100)
+polygon = PackedVector2Array(0, 0, 90, 0, 80, -33, 64, -55, 32, -75, 0, -81)
 
 [node name="Polygon2D2" type="Polygon2D" parent="DrawParts/M1"]
 material = ExtResource("7_p51pu")
@@ -75,7 +77,7 @@ polygon = PackedVector2Array(0, 0, 100, 0, 100, -35, 75, -75, 35, -100, 0, -100)
 
 [node name="Polygon2D2" type="Polygon2D" parent="DrawParts/M2"]
 material = ExtResource("7_p51pu")
-polygon = PackedVector2Array(0, 0, 100, 0, 100, -35, 75, -75, 35, -100, 0, -100)
+polygon = PackedVector2Array(0, 0, 103, -0.000372859, 95.9999, -33.0003, 72.9998, -67.0003, 33.9997, -87.0001, -0.000325799, -90)
 
 [node name="M3" type="Area2D" parent="DrawParts" node_paths=PackedStringArray("mask", "circle")]
 rotation = 3.14159
@@ -89,7 +91,7 @@ polygon = PackedVector2Array(0, 0, 100, 0, 100, -35, 75, -75, 35, -100, 0, -100)
 
 [node name="Polygon2D2" type="Polygon2D" parent="DrawParts/M3"]
 material = ExtResource("7_p51pu")
-polygon = PackedVector2Array(0, 0, 100, 0, 100, -35, 75, -75, 35, -100, 0, -100)
+polygon = PackedVector2Array(0, 0, 92, 0.000233237, 92.0001, -29.9998, 71.0002, -69.9998, 34.0002, -96.9999, 0.000258589, -102)
 
 [node name="M4" type="Area2D" parent="DrawParts" node_paths=PackedStringArray("mask", "circle")]
 rotation = 4.71239
@@ -103,7 +105,7 @@ polygon = PackedVector2Array(0, 0, 100, 0, 100, -35, 75, -75, 35, -100, 0, -100)
 
 [node name="Polygon2D2" type="Polygon2D" parent="DrawParts/M4"]
 material = ExtResource("7_p51pu")
-polygon = PackedVector2Array(0, 0, 100, 0, 100, -35, 75, -75, 35, -100, 0, -100)
+polygon = PackedVector2Array(0, 0, 81, -7.82135e-05, 80, -17.0001, 64.9999, -56.0001, 33.9999, -83, -8.98007e-05, -93)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LD55"
-run/main_scene="res://Scenes/library.tscn"
+run/main_scene="res://Scenes/title.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 Lookup="*res://Scripts/Lookup.gd"
 Game="*res://Scripts/Game.gd"
+GlobalSceneManager="*res://Scripts/GlobalSceneManager.gd"
+Audio="*res://Scripts/Audio.gd"
 
 [display]
 
@@ -95,4 +97,4 @@ prev_item={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
